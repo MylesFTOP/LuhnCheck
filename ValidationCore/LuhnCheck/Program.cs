@@ -11,12 +11,12 @@ namespace LuhnCheck
     {
         static void Main(string[] args)
         {
-            Validate Input = new Validate();
+            ParseInput ParseInput = new ParseInput();
 
             Console.WriteLine("Enter number for validation:");
-            Input.InputString = Console.ReadLine();
+            ParseInput.InputString = Console.ReadLine();
 
-            Console.WriteLine();
+            Console.WriteLine($"{ParseInput.ValidInput}");
         }
     }
 }

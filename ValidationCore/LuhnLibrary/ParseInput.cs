@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LuhnLibrary
 {
@@ -23,11 +19,10 @@ namespace LuhnLibrary
             get { return parseSucceeded; }
         }
 
-        private void ParseInputString()
+        public void ParseInputString()
         {
             string msg = "";
 
-            // Throw a FormatException if the string does not consist solely of numbers
             try
             {
                 if (int.TryParse(inputString, out parsedInput) == false)

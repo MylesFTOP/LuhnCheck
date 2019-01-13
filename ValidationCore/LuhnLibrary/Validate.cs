@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LuhnLibrary
 {
@@ -14,15 +10,16 @@ namespace LuhnLibrary
         {
             get { return validLuhn; }
         }
-
+        /*
         private void ValidateInputString()
         {
             // Default is modulo 10 version of Luhn for now - possibly extend to modulo n in future
-            if (ParseInput. == true)
+            if ( == true)
             {
                 // Code to follow, first testing that invalid format of input throws exception
                 validLuhn = true;
             }
         }
+        */
     }
 }
