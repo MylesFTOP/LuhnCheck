@@ -15,6 +15,7 @@ namespace LuhnCheck
 
             Console.WriteLine("Enter number for validation:");
             ParseInput.InputString = Console.ReadLine();
+            ParseInput.ParseInputString();
 
             Console.WriteLine($"{ParseInput.ValidInput}");
         }

@@ -25,7 +25,7 @@ namespace LuhnLibrary
 
             try
             {
-                if (int.TryParse(inputString, out parsedInput) == false)
+                if (int.TryParse(InputString, out parsedInput) == false)
                 {
                     msg = "\nInput must be a number.";
                     throw new FormatException(msg);
