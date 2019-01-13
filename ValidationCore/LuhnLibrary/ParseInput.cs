@@ -5,7 +5,7 @@ namespace LuhnLibrary
     public class ParseInput
     {
         string inputString = "";
-        int parsedInput = 0;
+        decimal parsedInput = 0;
         bool parseSucceeded = false;
 
         public string InputString
@@ -25,7 +25,7 @@ namespace LuhnLibrary
 
             try
             {
-                if (int.TryParse(InputString, out parsedInput) == false)
+                if (decimal.TryParse(InputString, out parsedInput) == false)
                 {
                     msg = "\nInput must be a number.";
                     throw new FormatException(msg);
