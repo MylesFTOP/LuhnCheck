@@ -11,8 +11,8 @@ namespace LuhnCheck
     {
         static void Main(string[] args)
         {
-            ParseInput ParseInput = new ParseInput();
-            Validate Validate = new Validate();
+            ParsableInput ParseInput = new ParsableInput();
+            ValidatableInput Validate = new ValidatableInput();
 
             Console.WriteLine("Enter number for validation:");
             ParseInput.InputString = Console.ReadLine();
@@ -24,9 +24,6 @@ namespace LuhnCheck
             Console.WriteLine($"{ParseInput.InputString}");
             Console.WriteLine($"{ParseInput.ValidInput}");
             Console.WriteLine($"{Validate.ValidLuhn}");
-        }
-
-
-
+        }        
     }
 }

@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace LuhnLibrary
 {
-    public class Validate
+    public class ValidatableInput : Input
     {
-        bool parseSuceeded = false;
-        bool validLuhn = false;
-        
+        private bool parseSuceeded = false;
+        private bool validLuhn = false;
+
         public bool ValidLuhn
         {
             get { return validLuhn; }
@@ -14,11 +18,11 @@ namespace LuhnLibrary
 
         public void ParseInputString()
         {
-            ParseInput ParseInput = new ParseInput();
+            ParsableInput ParseInput = new ParsableInput();
             ParseInput.ParseInputString();
             bool parseSuceeded = ParseInput.ValidInput;
         }
-        
+
         public void ValidateInputString()
         {
             ParseInputString();
@@ -30,6 +34,6 @@ namespace LuhnLibrary
                 validLuhn = true;
             }
         }
-        
+
     }
 }

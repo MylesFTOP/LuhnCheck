@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace LuhnLibrary
 {
-    public class ParseInput
+    public class ParsableInput
     {
-        string inputString = "";
-        decimal parsedInput = 0;
-        bool parseSucceeded = false;
+        private string inputString = "";
+        private decimal parsedInput = 0;
+        private bool parseSucceeded = false;
 
         public string InputString
         {
@@ -38,4 +42,4 @@ namespace LuhnLibrary
             }
         }
     }
-}
+ }

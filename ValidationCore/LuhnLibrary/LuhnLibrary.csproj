@@ -40,9 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ParseInput.cs" />
+    <Compile Include="Input.cs" />
+    <Compile Include="ParsableInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Validate.cs" />
+    <Compile Include="ValidatableInput.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
