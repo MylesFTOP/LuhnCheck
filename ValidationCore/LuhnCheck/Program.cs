@@ -9,21 +9,49 @@ namespace LuhnCheck
 {
     class Program
     {
+        private static List<Input> inputs = new List<Input>();
+
         static void Main(string[] args)
         {
-            ParsableInput ParseInput = new ParsableInput();
-            ValidatableInput Validate = new ValidatableInput();
+            SetupTestData();
+            EchoInput();
+        }
+
+        private static void CollectManualInput()
+        {
+            Input Input = new Input();
 
             Console.WriteLine("Enter number for validation:");
-            ParseInput.InputString = Console.ReadLine();
+            Input.InputString = Console.ReadLine();
+        }
 
-            // Validate.ValidateInputString();
-            // Console.WriteLine($"{ParseInput.ValidInput}");
-            ParseInput.ParseInputString();
+        private static void SetupTestData()
+        {
+            inputs.Add(new Input { InputString = "432529684" });
+            inputs.Add(new Input { InputString = "876534250" });
+            inputs.Add(new Input { InputString = "768943609" });
+        }
 
-            Console.WriteLine($"{ParseInput.InputString}");
-            Console.WriteLine($"{ParseInput.ValidInput}");
-            Console.WriteLine($"{Validate.ValidLuhn}");
-        }        
+        private static void EchoInput()
+        {
+            foreach (var input in inputs)
+            {
+                Console.WriteLine($"You have entered the following number: {input.InputString}");
+            }
+        }
+
+        private static void TestTheData()
+        {
+            foreach (var input in inputs)
+            {
+                Input Input = new Input();
+
+                Input.ParseInputString();
+
+                Console.WriteLine($"InputString = {Input.InputString}");
+                Console.WriteLine($"ValidInput = {Input.ValidInput}");
+                Console.WriteLine($"ValidLuhn = {Input.ValidLuhn}");
+            }
+        }
     }
 }
