@@ -13,16 +13,14 @@ namespace LuhnCheck
 
         static void Main(string[] args)
         {
-            SetupTestData();
+            CollectManualInput();
             EchoInput();
         }
 
         private static void CollectManualInput()
         {
-            Input Input = new Input();
-
             Console.WriteLine("Enter number for validation:");
-            Input.InputString = Console.ReadLine();
+            inputs.Add(new Input { InputString = Console.ReadLine() });
         }
 
         private static void SetupTestData()
