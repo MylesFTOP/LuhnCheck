@@ -12,6 +12,8 @@ namespace LuhnLibrary
         protected decimal parsedInput = 0;
         protected bool parseSucceeded = false;
 
+        public static List<Input> inputs = new List<Input>();
+
         public string InputString
         {
             get { return inputString; }
@@ -21,6 +23,14 @@ namespace LuhnLibrary
         public bool ValidInput
         {
             get { return parseSucceeded; }
+        }
+
+        public static void EchoInput()
+        {
+            foreach (var input in inputs)
+            {
+                Console.WriteLine($"You have entered the following number: {input.InputString}");
+            }
         }
 
         public void ParseInputString()
