@@ -16,22 +16,29 @@ namespace LuhnCheck
 
             decimal parsedInput = 0;
             string msg = "";
+            bool parseSucceeded = false;
 
-            try
+            void ParseInputString()
             {
-                if (decimal.TryParse(inputstring, out parsedInput) == false)
+                try
                 {
-                    msg = "\nInput must be a number.";
-                    throw new FormatException(msg);
+                    if (decimal.TryParse(inputstring, out parsedInput) == false)
+                    {
+                        msg = "\nInput must be a number.";
+                        throw new FormatException(msg);
+                    }
+                    parseSucceeded = true;
                 }
-                parsedInput = 1;
+                catch (FormatException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
-            catch (FormatException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+
+            ParseInputString();
 
             Console.WriteLine(parsedInput);
+            Console.WriteLine(parseSucceeded);
 
             //CollectManualInput();
             //SetupTestData();
