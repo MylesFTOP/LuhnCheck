@@ -12,7 +12,7 @@ namespace LuhnCheck
     {
         static void Main(string[] args)
         {
-            string inputString = "8912345678901234567.0";
+            string inputString = ".89123456789012345670";
 
             void ParseInputString()
             {
@@ -29,7 +29,7 @@ namespace LuhnCheck
                         string msg = "Input must be a number.";
                         throw new FormatException(msg);
                     }
-                    if (inputString.IndexOf('.') > 0)
+                    if (inputString.IndexOf('.') >= 0)
                     {
                         string msg = "Input must not be a decimal.";
                         throw new FormatException(msg);
