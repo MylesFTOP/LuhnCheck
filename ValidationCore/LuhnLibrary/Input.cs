@@ -35,13 +35,11 @@ namespace LuhnLibrary
 
         public void ParseInputString()
         {
-            string msg = "";
-
             try
             {
                 if (decimal.TryParse(inputString, out parsedInput) == false)
                 {
-                    msg = "\nInput must be a number.";
+                    string msg = "\nInput must be a number.";
                     throw new FormatException(msg);
                 }
                 parseSucceeded = true;

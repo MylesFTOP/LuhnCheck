@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using LuhnLibrary;
@@ -11,20 +12,20 @@ namespace LuhnCheck
     {
         static void Main(string[] args)
         {
-            string inputString = "4325325";
-            Console.WriteLine(inputString);
-
-            decimal parsedOutput = 0;
-            string msg = "";
-            bool parseSucceeded = false;
+            string inputString = "8912345678901234567";
 
             void ParseInputString()
             {
+                bool parseSucceeded = false;
+                decimal parsedOutput = 0;
+
+                Console.WriteLine(inputString);
+                
                 try
                 {
                     if (decimal.TryParse(inputString, out parsedOutput) == false)
                     {
-                        msg = "\nInput must be a number.";
+                        string msg = "Input must be a number.";
                         throw new FormatException(msg);
                     }
                     parseSucceeded = true;
@@ -33,12 +34,17 @@ namespace LuhnCheck
                 {
                     Console.WriteLine(ex.Message);
                 }
+
+                Console.WriteLine(parsedOutput);
+                Console.WriteLine(parseSucceeded);
             }
 
             ParseInputString();
 
-            Console.WriteLine(parsedOutput);
-            Console.WriteLine(parseSucceeded);
+            inputString = "89123456789012345678";
+
+            ParseInputString();
+
 
             //CollectManualInput();
             //SetupTestData();
