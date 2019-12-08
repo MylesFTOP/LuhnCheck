@@ -12,23 +12,24 @@ namespace LuhnCheck
     {
         static void Main(string[] args)
         {
-            string inputString = "8912345678901234567.1";
+            string inputString = "8912345678901234567.0";
 
             void ParseInputString()
             {
                 bool parseSucceeded = false;
-                decimal parsedOutput = 0;
+                decimal parsedInput = 0;
 
                 Console.WriteLine(inputString);
                 
                 try
                 {
-                    if (decimal.TryParse(inputString, out parsedOutput) == false)
+                    // Uses decimal as ICCIDs can be up to 70 bits long
+                    if (decimal.TryParse(inputString, out parsedInput) == false)
                     {
                         string msg = "Input must be a number.";
                         throw new FormatException(msg);
                     }
-                    if (parsedOutput != Math.Floor(parsedOutput)) // This won't fail if inputString ends with .0
+                    if (inputString.IndexOf('.') > 0)
                     {
                         string msg = "Input must not be a decimal.";
                         throw new FormatException(msg);
@@ -40,7 +41,7 @@ namespace LuhnCheck
                     Console.WriteLine(ex.Message);
                 }
 
-                Console.WriteLine(parsedOutput);
+                Console.WriteLine(parsedInput);
                 Console.WriteLine(parseSucceeded);
             }
 
@@ -49,7 +50,6 @@ namespace LuhnCheck
             inputString = "89123456789012345678";
 
             ParseInputString();
-
 
             //CollectManualInput();
             //SetupTestData();
