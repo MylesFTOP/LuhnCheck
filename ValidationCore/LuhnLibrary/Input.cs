@@ -39,7 +39,7 @@ namespace LuhnLibrary
 
             try
             {
-                if (decimal.TryParse(InputString, out parsedInput) == false)
+                if (decimal.TryParse(inputString, out parsedInput) == false)
                 {
                     msg = "\nInput must be a number.";
                     throw new FormatException(msg);

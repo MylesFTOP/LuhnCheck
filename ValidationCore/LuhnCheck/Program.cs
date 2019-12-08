@@ -11,8 +11,8 @@ namespace LuhnCheck
     {
         static void Main(string[] args)
         {
-            string inputstring = "4325325";
-            Console.WriteLine(inputstring);
+            string inputString = "4325325";
+            Console.WriteLine(inputString);
 
             decimal parsedOutput = 0;
             string msg = "";
@@ -22,7 +22,7 @@ namespace LuhnCheck
             {
                 try
                 {
-                    if (decimal.TryParse(inputstring, out parsedOutput) == false)
+                    if (decimal.TryParse(inputString, out parsedOutput) == false)
                     {
                         msg = "\nInput must be a number.";
                         throw new FormatException(msg);
