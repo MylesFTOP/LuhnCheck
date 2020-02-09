@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LuhnLibrary
 {
-    public class LuhnValidation
+    public class LuhnValidationCandidate
     {
         protected bool validLuhn = false;
         protected bool parseSucceeded = false;
