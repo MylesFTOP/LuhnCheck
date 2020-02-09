@@ -67,20 +67,11 @@ namespace LuhnCheck
 
         private static void SetupTestData()
         {
-            Input Input = new Input();
+            var Input = new Input();
 
             Input.inputs.Add(new Input { InputString = "432529684" });
             Input.inputs.Add(new Input { InputString = "876534250" });
             Input.inputs.Add(new Input { InputString = "768943609" });
-
-            foreach (var input in Input.inputs)
-            {
-                //Input.ParseInputString();
-
-                Console.WriteLine($"InputString = {Input.InputString}");
-                Console.WriteLine($"ValidInput = {Input.ValidInput}");
-                Console.WriteLine($"ValidLuhn = {Input.ValidLuhn}");
-            }
         }
 
         private static void TestTheData()
@@ -89,15 +80,13 @@ namespace LuhnCheck
 
             foreach (var input in Input.inputs)
             {
-                Input Input = new Input();
-
-                Input.ParseInputString();
+                //Input.ParseInputString();
 
                 Console.WriteLine($"InputString = {Input.InputString}");
-                Console.WriteLine($"ValidInput = {Input.ValidInput}");
-                Console.WriteLine($"ValidLuhn = {Input.ValidLuhn}");
+                Console.WriteLine($"ValidInput = {LuhnValidation.ValidInput}");
+                Console.WriteLine($"ValidLuhn = {LuhnValidation.ValidLuhn}");
             }
-            
+
         }
     }
 }

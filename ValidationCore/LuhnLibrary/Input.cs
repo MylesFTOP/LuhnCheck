@@ -20,11 +20,6 @@ namespace LuhnLibrary
             set { inputString = value; }
         }
 
-        public bool ValidInput
-        {
-            get { return parseSucceeded; }
-        }
-
         public static void EchoInput()
         {
             foreach (var input in inputs)
@@ -37,9 +32,15 @@ namespace LuhnLibrary
         {
             try
             {
+                // Uses decimal as ICCIDs can be up to 70 bits long
                 if (decimal.TryParse(inputString, out parsedInput) == false)
                 {
-                    string msg = "\nInput must be a number.";
+                    string msg = "Input must be a number.";
+                    throw new FormatException(msg);
+                }
+                if (inputString.IndexOf('.') >= 0)
+                {
+                    string msg = "Input must not be a decimal.";
                     throw new FormatException(msg);
                 }
                 parseSucceeded = true;
@@ -47,23 +48,6 @@ namespace LuhnLibrary
             catch (FormatException ex)
             {
                 Console.WriteLine(ex.Message);
-            }
-        }
-
-        protected bool validLuhn = false;
-
-        public bool ValidLuhn
-        {
-            get { return validLuhn; }
-        }
-
-        public void ValidateInputString()
-        {
-            // Default is modulo 10 version of Luhn for now - possibly extend to modulo n in future
-            if (ValidInput == true)
-            {
-                // Code to follow, first testing that invalid format of input throws exception
-                validLuhn = true;
             }
         }
     }
