@@ -12,8 +12,11 @@ namespace LuhnCheck
     {
         static void Main(string[] args)
         {
-           
-
+            LuhnValidationCandidate Candidate = new LuhnValidationCandidate();
+            Candidate.inputString = Console.ReadLine();
+            Candidate.ValidInput = true;
+            Candidate.ValidateInputString();
+            Console.WriteLine(Candidate.ValidLuhn);
         }
 
     }

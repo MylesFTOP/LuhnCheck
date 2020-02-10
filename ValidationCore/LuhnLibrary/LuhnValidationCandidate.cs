@@ -11,9 +11,12 @@ namespace LuhnLibrary
         protected bool validLuhn = false;
         protected bool parseSucceeded = false;
 
+        public string inputString = "";
+
         public bool ValidInput
         {
             get { return parseSucceeded; }
+            set { parseSucceeded = true; }
         }
 
         public bool ValidLuhn
