@@ -10,7 +10,9 @@ namespace LuhnLibrary
     {
         protected bool validLuhn = false;
         protected bool parseSucceeded = false;
-
+        protected int luhnCheckDigit;
+        
+        public bool alreadyHasCheckDigit;
         public string inputString = "";
 
         public bool ValidInput
@@ -22,16 +24,36 @@ namespace LuhnLibrary
         public bool ValidLuhn
         {
             get { return validLuhn; }
+            set { validLuhn = true; }
+        }
+
+        public int LuhnCheckDigit
+        {
+            get { return luhnCheckDigit; }
+            set { luhnCheckDigit = value; }
+        }
+
+        public string GenerateLuhn()
+        {
+            if (alreadyHasCheckDigit == true)
+                return inputString;
+
+            if (alreadyHasCheckDigit == false)
+                return inputString;
+
+            else return "Error: Unknown whether input has a check digit already";
         }
 
         public void ValidateInputString()
         {
             // Default is modulo 10 version of Luhn for now - possibly extend to modulo n in future
-            if (ValidInput == true)
+            if (ValidInput == true && alreadyHasCheckDigit == true)
             {
-                // Code to follow, first testing that invalid format of input throws exception
+                GenerateLuhn();
                 validLuhn = true;
             }
+
+            else validLuhn = false;
         }
     }
 }
