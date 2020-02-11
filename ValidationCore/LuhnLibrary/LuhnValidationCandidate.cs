@@ -10,16 +10,10 @@ namespace LuhnLibrary
     {
         protected bool validLuhn = false;
         protected bool parseSucceeded = false;
+        protected bool alreadyHasCheckDigit = false;
         protected int luhnCheckDigit;
         
-        public bool alreadyHasCheckDigit = false;
         public string inputString = "";
-
-        public bool AlreadyHasCheckDigit 
-        {
-            get { return alreadyHasCheckDigit; }
-            set { alreadyHasCheckDigit = value; }  
-        }
         
         public bool ValidInput
         {
@@ -39,17 +33,12 @@ namespace LuhnLibrary
             set { luhnCheckDigit = value; }
         }
 
-        public LuhnValidationCandidate (bool alreadyHasCheckdigit)
-        {
-            this.AlreadyHasCheckDigit = alreadyHasCheckDigit;
-        }
-
         public string GenerateLuhn()
         {
-            if (alreadyHasCheckDigit == true)
+            if (alreadyHasCheckDigit == true) // This will be a case that can be checked
                 return inputString;
 
-            if (alreadyHasCheckDigit == false)
+            if (alreadyHasCheckDigit == false) // This will not
                 return inputString;
 
             else return "Error: Unknown whether input has a check digit already";
@@ -58,15 +47,10 @@ namespace LuhnLibrary
         public void ValidateInputString()
         {
             // Default is modulo 10 version of Luhn for now - possibly extend to modulo n in future
-            if (ValidInput == true && alreadyHasCheckDigit == true)
+            if (ValidInput == true)
             {
                 GenerateLuhn();
                 validLuhn = true;
-            }
-
-            else if (ValidInput == true && alreadyHasCheckDigit == false)
-            {
-                Console.WriteLine("Cannot be validated - needs to already have a check digit");
             }
 
             else validLuhn = false;
