@@ -12,11 +12,19 @@ namespace LuhnCheck
     {
         static void Main(string[] args)
         {
-            LuhnValidationCandidate Candidate = new LuhnValidationCandidate();
-            Candidate.inputString = Console.ReadLine();
-            Candidate.ValidInput = true;
-            Candidate.ValidateInputString();
-            Console.WriteLine(Candidate.ValidLuhn);
+            LuhnValidationCandidate TrueCandidate = new LuhnValidationCandidate(true);
+            Console.WriteLine("Already has check digit:" + TrueCandidate.AlreadyHasCheckDigit);
+            TrueCandidate.inputString = Console.ReadLine();
+            TrueCandidate.ValidInput = true;
+            TrueCandidate.ValidateInputString();
+            Console.WriteLine(TrueCandidate.ValidLuhn);
+            
+            LuhnValidationCandidate FalseCandidate = new LuhnValidationCandidate(false);
+            Console.WriteLine("Already has check digit:" + TrueCandidate.AlreadyHasCheckDigit);
+            FalseCandidate.inputString = Console.ReadLine();
+            FalseCandidate.ValidInput = true;
+            FalseCandidate.ValidateInputString();
+            Console.WriteLine(FalseCandidate.ValidLuhn);
         }
 
     }
