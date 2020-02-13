@@ -27,28 +27,5 @@ namespace LuhnLibrary
                 Console.WriteLine($"You have entered the following number: {input.InputString}");
             }
         }
-
-        public void ParseInputString()
-        {
-            try
-            {
-                // Uses decimal as ICCIDs can be up to 70 bits long
-                if (decimal.TryParse(inputString, out parsedInput) == false)
-                {
-                    string msg = "Input must be a number.";
-                    throw new FormatException(msg);
-                }
-                if (inputString.IndexOf('.') >= 0)
-                {
-                    string msg = "Input must not be a decimal.";
-                    throw new FormatException(msg);
-                }
-                parseSucceeded = true;
-            }
-            catch (FormatException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
     }
 }
