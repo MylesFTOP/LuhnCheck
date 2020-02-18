@@ -14,6 +14,7 @@ namespace LuhnLibrary
         protected int luhnCheckDigit;
         
         public string inputString = "";
+        public decimal parsedInput;
         
         public bool ValidInput
         {
