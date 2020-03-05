@@ -24,7 +24,7 @@ namespace LuhnCheck
             {
                 int currentDigit = int.Parse(input.Substring(input.Length - i - 1, 1));
 
-                if(i % 2 == 0) // If i is an odd number
+                if(i % 2 == 0) // Is i an even number
                     { doubleOperands = doubleOperands + currentDigit; }
                 else
                     { singleOperands = singleOperands + currentDigit; }
