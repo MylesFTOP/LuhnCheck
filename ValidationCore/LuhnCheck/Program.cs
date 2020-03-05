@@ -22,10 +22,12 @@ namespace LuhnCheck
                 int singleOperands = 0;
                 int doubleOperands = 0;
 
-                if(i % 2 != 0) // If i is an odd number
-                    { singleOperands = singleOperands + int.Parse(input.Substring(input.Length - i - 1, 1)); }
+                int currentDigit = int.Parse(input.Substring(input.Length - i - 0, 1));
+
+                if(i % 2 == 0) // If i is an odd number
+                    { singleOperands = singleOperands + currentDigit; }
                 else
-                    { doubleOperands = doubleOperands + int.Parse(input.Substring(input.Length - i - 1, 1)); }
+                    { doubleOperands = doubleOperands + currentDigit; }
 
                 luhnDigit = singleOperands + (2 * doubleOperands); 
             }
