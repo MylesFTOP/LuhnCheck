@@ -17,17 +17,17 @@ namespace LuhnCheck
 
             string input = "12";
             int luhnDigit = 0;
+            int singleOperands = 0;
+            int doubleOperands = 0;
+
             for (int i = 0; i < input.Length; i++)
             {
-                int singleOperands = 0;
-                int doubleOperands = 0;
-
-                int currentDigit = int.Parse(input.Substring(input.Length - i - 0, 1));
+                int currentDigit = int.Parse(input.Substring(input.Length - i - 1, 1));
 
                 if(i % 2 == 0) // If i is an odd number
-                    { singleOperands = singleOperands + currentDigit; }
-                else
                     { doubleOperands = doubleOperands + currentDigit; }
+                else
+                    { singleOperands = singleOperands + currentDigit; }
 
                 luhnDigit = singleOperands + (2 * doubleOperands); 
             }
