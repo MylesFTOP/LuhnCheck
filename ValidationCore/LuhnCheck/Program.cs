@@ -15,7 +15,7 @@ namespace LuhnCheck
             // Start with calculating Luhn check digit for a string that doesn't have one
             // Luhn algorithm: starting from the right, take every other digit and double it, then add it all together
 
-            string input = "12";
+            string input = "123456789";
             int luhnDigit = 0;
             int singleOperands = 0;
             int doubleOperands = 0;
@@ -32,9 +32,14 @@ namespace LuhnCheck
                 luhnDigit = singleOperands + (2 * doubleOperands); 
             }
 
+            string luhnDigitString = luhnDigit.ToString();
+            luhnDigit = 0;
+
+            for (int i = 0; i < luhnDigitString.Length; i++)
+                { luhnDigit = luhnDigit + int.Parse(luhnDigitString.Substring(i,1)); }
+
             string output = input + luhnDigit;
             Console.WriteLine(output);
         }
-
     }
 }
