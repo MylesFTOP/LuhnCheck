@@ -12,7 +12,26 @@ namespace LuhnCheck
     {
         static void Main(string[] args)
         {
-            
+            // Start with calculating Luhn check digit for a string that doesn't have one
+            // Luhn algorithm: starting from the right, take every other digit and double it, then add it all together
+
+            string input = "12";
+            int luhnDigit = 0;
+            for (int i = 0; i < input.Length; i++)
+            {
+                int singleOperands = 0;
+                int doubleOperands = 0;
+
+                if(i % 2 != 0) // If i is an odd number
+                    { singleOperands = singleOperands + int.Parse(input.Substring(input.Length - i - 1, 1)); }
+                else
+                    { doubleOperands = doubleOperands + int.Parse(input.Substring(input.Length - i - 1, 1)); }
+
+                luhnDigit = singleOperands + (2 * doubleOperands); 
+            }
+
+            string output = input + luhnDigit;
+            Console.WriteLine(output);
         }
 
     }
