@@ -24,14 +24,13 @@ namespace LuhnCheck
             {
                 int currentDigit = int.Parse(input.Substring(input.Length - i - 1, 1));
 
-                if(i % 2 == 0) // Is i an even number
+                if(i % 2 == 0) // Is i an even number?
                     { doubleOperands = doubleOperands + currentDigit; }
                 else
                     { singleOperands = singleOperands + currentDigit; }
-
-                luhnDigit = singleOperands + (2 * doubleOperands); 
             }
 
+            luhnDigit = singleOperands + (2 * doubleOperands);
             string luhnDigitString = luhnDigit.ToString();
             luhnDigit = 0;
 
