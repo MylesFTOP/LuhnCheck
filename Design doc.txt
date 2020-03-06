@@ -2,11 +2,11 @@ Structure:
 
 Solution: ValidationCore
 Projects: LuhnCheck - core application
-		  LuhnLibrary - class library
-		  LuhnValidationUnitTests - test library
+          LuhnLibrary - class library
+          LuhnValidationUnitTests - test library
 		  
 Classes:  Main.cs - main file
-		  LuhnCandidate.cs - number string and related methods
+          LuhnCandidate.cs - number string and related methods
 			
 Methods: 
 
@@ -14,12 +14,9 @@ AddSuffix -> CalculateLuhn
 ValidateSuffix -> CalculateLuhn
 CalculateLuhn
 
-
-
 Brief:
 
 Taking a numerical string as an input, either calculate a checksum suffix or validate an existing suffix using the Luhn algorithm.
-
 
 Pathway:
 
