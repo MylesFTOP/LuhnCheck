@@ -4,7 +4,6 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using LuhnLibrary;
 
 namespace LuhnCheck
 {
@@ -40,5 +39,7 @@ namespace LuhnCheck
             string output = input + luhnDigit;
             Console.WriteLine(output);
         }
+
+        // Next steps: Add unit tests for above operation, then extract it into relevant methods (e.g. CalculateLuhnDigit() ) here
     }
 }
