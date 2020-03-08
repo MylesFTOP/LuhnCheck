@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LuhnCheck
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -20,7 +20,7 @@ namespace LuhnCheck
 
         // Next steps: Add unit tests for above operation, then extract it into relevant methods (e.g. CalculateLuhnDigit() ) here
         
-        static void CalculateLuhnDigit(string input)
+        public static string CalculateLuhnDigit(string input)
         {
             int luhnDigit = 0;
             int singleOperands = 0;
@@ -45,6 +45,7 @@ namespace LuhnCheck
 
             string output = input + luhnDigit;
             Console.WriteLine(output);
+            return output;
         }
 
     }
