@@ -1,5 +1,6 @@
 ﻿using System;
 using LuhnCheck;
+using LuhnLibrary;
 using Xunit;
 
 namespace LuhnValidationUnitTests
@@ -9,16 +10,22 @@ namespace LuhnValidationUnitTests
         [Fact]
         public void checkLuhnOutput()
         {
-            string expectedValue = "125";
-            string actualValue = LuhnCheck.Program.CalculateLuhnDigit("12");
+            string input = "12";
+            LuhnValidator luhnCandidate = new LuhnValidator();
+            
+            string expectedValue = LuhnValidator.CalculateLuhnDigit(input);
+            string actualValue = Program.CalculateLuhnDigit(input);
             Assert.Equal(expectedValue, actualValue);
         }
         
         [Fact]
         public void checkLuhnOutput2()
         {
-            string expectedValue = "1234567897";
-            string actualValue = LuhnCheck.Program.CalculateLuhnDigit("123456789");
+            string input = "123456789";
+            LuhnValidator luhnCandidate = new LuhnValidator();
+
+            string expectedValue = LuhnValidator.CalculateLuhnDigit(input);
+            string actualValue = Program.CalculateLuhnDigit(input);
             Assert.Equal(expectedValue, actualValue);
         }
     }

@@ -1,27 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using LuhnLibrary;
 
-namespace LuhnCheck
+namespace LuhnLibrary
 {
-    public class Program
+    public class LuhnValidator
     {
-        static void Main(string[] args)
-        {
-            // Start with calculating Luhn check digit for a string that doesn't have one
-            // Luhn algorithm: starting from the right, take every other digit and double it, then add it all together
-
-            string input = Console.ReadLine();
-            CalculateLuhnDigit(input);
-
-            LuhnValidator luhnCandidate = new LuhnValidator();
-            LuhnValidator.CalculateLuhnDigit(input);
-        }
-
         public static string CalculateLuhnDigit(string input)
         {
             int luhnDigit = 0;
@@ -49,6 +35,5 @@ namespace LuhnCheck
             Console.WriteLine(output);
             return output;
         }
-
     }
 }
