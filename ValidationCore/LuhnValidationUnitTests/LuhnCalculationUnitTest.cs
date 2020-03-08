@@ -26,5 +26,23 @@ namespace LuhnValidationUnitTests
             string actualValue = luhnCandidate.AddLuhnSuffix(input);
             Assert.Equal(expectedValue, actualValue);
         }
+        
+        [Fact]
+        public void checkLuhnValidation()
+        {
+            string input = "125";
+            bool expectedValue = true;
+            bool actualValue = luhnCandidate.CheckLuhnSuffix(input);
+            Assert.Equal(expectedValue, actualValue);
+        }
+        
+        [Fact]
+        public void checkLuhnValidation2()
+        {
+            string input = "1234567897";
+            bool expectedValue = true;
+            bool actualValue = luhnCandidate.CheckLuhnSuffix(input);
+            Assert.Equal(expectedValue, actualValue);
+        }
     }
 }

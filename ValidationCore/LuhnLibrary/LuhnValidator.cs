@@ -8,6 +8,18 @@ namespace LuhnLibrary
 {
     public class LuhnValidator
     {
+        public string AddLuhnSuffix(string input)
+        {
+            string output = input + CalculateLuhnDigit(input, false);
+            Console.WriteLine(output);
+            return output;
+        }
+
+        public bool CheckLuhnSuffix(string input)
+        {
+            return false;
+        }
+
         public string CalculateLuhnDigit(string input, bool hasSuffix)
         {
             int luhnDigit = 0;
@@ -35,11 +47,6 @@ namespace LuhnLibrary
             return luhnDigitString;
         }
 
-        public string AddLuhnSuffix(string input)
-        {
-            string output = input + CalculateLuhnDigit(input, false);
-            Console.WriteLine(output);
-            return output;
-        }
+        
     }
 }
