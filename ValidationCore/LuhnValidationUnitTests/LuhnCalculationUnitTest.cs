@@ -7,11 +7,11 @@ namespace LuhnValidationUnitTests
 {
     public class LuhnCalculationUnitTest
     {
+        private LuhnValidator luhnCandidate = new LuhnValidator();
+
         [Fact]
         public void checkLuhnOutput()
         {
-            LuhnValidator luhnCandidate = new LuhnValidator();
-            
             string input = "12";
             string actualValue = "125";
             string expectedValue = luhnCandidate.CalculateLuhnDigit(input);
@@ -21,8 +21,6 @@ namespace LuhnValidationUnitTests
         [Fact]
         public void checkLuhnOutput2()
         {
-            LuhnValidator luhnCandidate = new LuhnValidator();
-
             string input = "123456789";
             string actualValue = "1234567897";
             string expectedValue = luhnCandidate.CalculateLuhnDigit(input);
