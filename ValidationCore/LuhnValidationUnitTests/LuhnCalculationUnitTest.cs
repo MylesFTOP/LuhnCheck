@@ -1,4 +1,5 @@
 ﻿using System;
+using LuhnCheck;
 using Xunit;
 
 namespace LuhnValidationUnitTests
@@ -8,7 +9,6 @@ namespace LuhnValidationUnitTests
         [Fact]
         public void Test1()
         {
-
         }
     }
 }

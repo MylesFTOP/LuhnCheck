@@ -24,9 +24,9 @@ namespace LuhnCheck
                 int currentDigit = int.Parse(input.Substring(input.Length - i - 1, 1));
 
                 if (i % 2 == 0)
-                    { doubleOperands += currentDigit; }
+                { doubleOperands += currentDigit; }
                 else
-                    { singleOperands += currentDigit; }
+                { singleOperands += currentDigit; }
             }
 
             luhnDigit = singleOperands + (2 * doubleOperands);
@@ -34,12 +34,41 @@ namespace LuhnCheck
             luhnDigit = 0;
 
             for (int i = 0; i < luhnDigitString.Length; i++)
-                { luhnDigit += int.Parse(luhnDigitString.Substring(i,1)); }
+            { luhnDigit += int.Parse(luhnDigitString.Substring(i, 1)); }
+
+            string output = input + luhnDigit;
+            Console.WriteLine(output);
+            CalculateLuhnDigit(input);
+        }
+
+        // Next steps: Add unit tests for above operation, then extract it into relevant methods (e.g. CalculateLuhnDigit() ) here
+        
+        static void CalculateLuhnDigit(string input)
+        {
+            int luhnDigit = 0;
+            int singleOperands = 0;
+            int doubleOperands = 0;
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                int currentDigit = int.Parse(input.Substring(input.Length - i - 1, 1));
+
+                if (i % 2 == 0)
+                { doubleOperands += currentDigit; }
+                else
+                { singleOperands += currentDigit; }
+            }
+
+            luhnDigit = singleOperands + (2 * doubleOperands);
+            string luhnDigitString = luhnDigit.ToString();
+            luhnDigit = 0;
+
+            for (int i = 0; i < luhnDigitString.Length; i++)
+            { luhnDigit += int.Parse(luhnDigitString.Substring(i, 1)); }
 
             string output = input + luhnDigit;
             Console.WriteLine(output);
         }
 
-        // Next steps: Add unit tests for above operation, then extract it into relevant methods (e.g. CalculateLuhnDigit() ) here
     }
 }
