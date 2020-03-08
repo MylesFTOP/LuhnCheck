@@ -10,22 +10,22 @@ namespace LuhnValidationUnitTests
         [Fact]
         public void checkLuhnOutput()
         {
-            string input = "12";
             LuhnValidator luhnCandidate = new LuhnValidator();
             
+            string input = "12";
+            string actualValue = "125";
             string expectedValue = LuhnValidator.CalculateLuhnDigit(input);
-            string actualValue = Program.CalculateLuhnDigit(input);
             Assert.Equal(expectedValue, actualValue);
         }
         
         [Fact]
         public void checkLuhnOutput2()
         {
-            string input = "123456789";
             LuhnValidator luhnCandidate = new LuhnValidator();
 
+            string input = "123456789";
+            string actualValue = "1234567897";
             string expectedValue = LuhnValidator.CalculateLuhnDigit(input);
-            string actualValue = Program.CalculateLuhnDigit(input);
             Assert.Equal(expectedValue, actualValue);
         }
     }
