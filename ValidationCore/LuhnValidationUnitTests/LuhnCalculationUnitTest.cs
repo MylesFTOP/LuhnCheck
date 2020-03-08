@@ -14,7 +14,7 @@ namespace LuhnValidationUnitTests
             
             string input = "12";
             string actualValue = "125";
-            string expectedValue = LuhnValidator.CalculateLuhnDigit(input);
+            string expectedValue = luhnCandidate.CalculateLuhnDigit(input);
             Assert.Equal(expectedValue, actualValue);
         }
         
@@ -25,7 +25,7 @@ namespace LuhnValidationUnitTests
 
             string input = "123456789";
             string actualValue = "1234567897";
-            string expectedValue = LuhnValidator.CalculateLuhnDigit(input);
+            string expectedValue = luhnCandidate.CalculateLuhnDigit(input);
             Assert.Equal(expectedValue, actualValue);
         }
     }

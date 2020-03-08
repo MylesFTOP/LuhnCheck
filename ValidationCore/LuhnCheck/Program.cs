@@ -16,8 +16,8 @@ namespace LuhnCheck
             // Luhn algorithm: starting from the right, take every other digit and double it, then add it all together
 
             string input = Console.ReadLine();
-            LuhnValidator luhnCandidate = new LuhnValidator();
-            LuhnValidator.CalculateLuhnDigit(input);
+            LuhnValidator luhnValidator = new LuhnValidator();
+            luhnValidator.CalculateLuhnDigit(input);
         }
     }
 }

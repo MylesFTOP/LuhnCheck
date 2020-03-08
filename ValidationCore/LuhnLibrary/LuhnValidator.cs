@@ -8,7 +8,7 @@ namespace LuhnLibrary
 {
     public class LuhnValidator
     {
-        public static string CalculateLuhnDigit(string input)
+        public string CalculateLuhnDigit(string input)
         {
             int luhnDigit = 0;
             int singleOperands = 0;
