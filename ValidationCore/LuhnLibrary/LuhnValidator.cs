@@ -11,7 +11,6 @@ namespace LuhnLibrary
         public string AddLuhnSuffix(string input)
         {
             string output = input + CalculateLuhnDigit(input);
-            Console.WriteLine(output);
             return output;
         }
 
