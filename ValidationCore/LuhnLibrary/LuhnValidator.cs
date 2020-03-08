@@ -30,8 +30,9 @@ namespace LuhnLibrary
 
             for (int i = 0; i < luhnDigitString.Length; i++)
             { luhnDigit += int.Parse(luhnDigitString.Substring(i, 1)); }
+            luhnDigitString = luhnDigit.ToString();
 
-            return null;
+            return luhnDigitString;
         }
 
         public string AddLuhnSuffix(string input)
