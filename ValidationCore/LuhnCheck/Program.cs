@@ -14,12 +14,10 @@ namespace LuhnCheck
             // Start with calculating Luhn check digit for a string that doesn't have one
             // Luhn algorithm: starting from the right, take every other digit and double it, then add it all together
 
-            string input = "123456789";
+            string input = Console.ReadLine();
             CalculateLuhnDigit(input);
         }
 
-        // Next steps: Add unit tests for above operation, then extract it into relevant methods (e.g. CalculateLuhnDigit() ) here
-        
         public static string CalculateLuhnDigit(string input)
         {
             int luhnDigit = 0;

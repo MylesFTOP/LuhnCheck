@@ -7,7 +7,7 @@ namespace LuhnValidationUnitTests
     public class LuhnCalculationUnitTest
     {
         [Fact]
-        public void CheckLuhnOutput()
+        public void checkLuhnOutput()
         {
             string expectedValue = "125";
             string actualValue = LuhnCheck.Program.CalculateLuhnDigit("12");
@@ -15,7 +15,7 @@ namespace LuhnValidationUnitTests
         }
         
         [Fact]
-        public void CheckLuhnOutput2()
+        public void checkLuhnOutput2()
         {
             string expectedValue = "1234567897";
             string actualValue = LuhnCheck.Program.CalculateLuhnDigit("123456789");
