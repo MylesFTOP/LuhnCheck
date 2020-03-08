@@ -17,7 +17,7 @@ namespace LuhnCheck
 
             string input = Console.ReadLine();
             LuhnValidator luhnValidator = new LuhnValidator();
-            luhnValidator.CalculateLuhnDigit(input);
+            luhnValidator.AddLuhnSuffix(input);
         }
     }
 }

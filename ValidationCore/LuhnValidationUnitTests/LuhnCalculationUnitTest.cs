@@ -13,8 +13,8 @@ namespace LuhnValidationUnitTests
         public void checkLuhnOutput()
         {
             string input = "12";
-            string actualValue = "125";
-            string expectedValue = luhnCandidate.CalculateLuhnDigit(input);
+            string expectedValue = "125";
+            string actualValue = luhnCandidate.AddLuhnSuffix(input);
             Assert.Equal(expectedValue, actualValue);
         }
         
@@ -22,8 +22,8 @@ namespace LuhnValidationUnitTests
         public void checkLuhnOutput2()
         {
             string input = "123456789";
-            string actualValue = "1234567897";
-            string expectedValue = luhnCandidate.CalculateLuhnDigit(input);
+            string expectedValue = "1234567897";
+            string actualValue = luhnCandidate.AddLuhnSuffix(input);
             Assert.Equal(expectedValue, actualValue);
         }
     }
