@@ -1,27 +1,24 @@
-Structure:
+# Structure
 
-Solution: ValidationCore
-Projects: LuhnCheck - core application
-		  LuhnLibrary - class library
-		  LuhnValidationUnitTests - test library
+**Solution:** ValidationCore
+**Projects:** LuhnCheck - core application
+          LuhnLibrary - class library
+          LuhnValidationUnitTests - test library
 		  
-Classes:  Main.cs - main file
-		  LuhnCandidate.cs - number string and related methods
+**Classes:**  Main.cs - main file
+          LuhnCandidate.cs - number string and related methods
 			
-Methods: 
+# Methods
 
-AddSuffix -> CalculateLuhn
-ValidateSuffix -> CalculateLuhn
-CalculateLuhn
+*AddSuffix* -> *CalculateLuhnDigit*
+*ValidateSuffix* -> *CalculateLuhnDigit*
+*CalculateLuhnDigit*
 
-
-
-Brief:
+# Brief
 
 Taking a numerical string as an input, either calculate a checksum suffix or validate an existing suffix using the Luhn algorithm.
 
-
-Pathway:
+# Pathway
 
 1. Run Luhn algorithm on string
 	a. Add Luhn suffix
