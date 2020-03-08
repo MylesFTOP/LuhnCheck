@@ -10,17 +10,25 @@ namespace LuhnLibrary
     {
         public string AddLuhnSuffix(string input)
         {
-            string output = input + CalculateLuhnDigit(input, false);
+            string output = input + CalculateLuhnDigit(input);
             Console.WriteLine(output);
             return output;
         }
 
         public bool CheckLuhnSuffix(string input)
         {
-            return false;
+            bool output = false;
+            string suffix = CalculateLuhnDigit(input.Substring(0 , input.Length - 1));
+
+            if (suffix == input.Substring(input.Length - 1 , 1))
+                output = true;
+            else
+                output = false;
+
+            return output;
         }
 
-        public string CalculateLuhnDigit(string input, bool hasSuffix)
+        public string CalculateLuhnDigit(string input)
         {
             int luhnDigit = 0;
             int singleOperands = 0;
