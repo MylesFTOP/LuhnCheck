@@ -10,7 +10,7 @@ namespace LuhnValidationUnitTests
         private LuhnValidator luhnCandidate = new LuhnValidator();
 
         [Fact]
-        public void checkLuhnOutput()
+        public void CheckLuhnOutput()
         {
             string input = "12";
             string expectedValue = "125";
@@ -19,7 +19,7 @@ namespace LuhnValidationUnitTests
         }
         
         [Fact]
-        public void checkLuhnOutput2()
+        public void CheckLuhnOutput2()
         {
             string input = "123456789";
             string expectedValue = "1234567897";
@@ -28,7 +28,7 @@ namespace LuhnValidationUnitTests
         }
         
         [Fact]
-        public void checkLuhnValidation()
+        public void CheckLuhnValidation()
         {
             string input = "125";
             bool expectedValue = true;
@@ -37,7 +37,7 @@ namespace LuhnValidationUnitTests
         }
         
         [Fact]
-        public void checkLuhnValidation2()
+        public void CheckLuhnValidation2()
         {
             string input = "1234567897";
             bool expectedValue = true;
@@ -46,7 +46,7 @@ namespace LuhnValidationUnitTests
         }
 
         [Fact]
-        public void checkLuhnValidation3()
+        public void CheckLuhnValidation3()
         {
             string input = "1234567899";
             bool expectedValue = false;
