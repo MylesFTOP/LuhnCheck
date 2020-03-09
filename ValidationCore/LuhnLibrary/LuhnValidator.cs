@@ -35,9 +35,7 @@ namespace LuhnLibrary
 
             for (int i = 0; i < input.Length; i++)
             {
-                int inputLength = input.Length;
-                int digitPosition = (inputLength - i - 1);
-                int currentDigit = int.Parse(input.Substring(digitPosition, 1));
+                int currentDigit = int.Parse(input.Substring((input.Length - i - 1), 1));
 
                 if (i % 2 == 0)
                 { doubleOperands += currentDigit; }
@@ -46,6 +44,13 @@ namespace LuhnLibrary
             }
 
             luhnDigit = singleOperands + (2 * doubleOperands);
+
+            string luhnDigitString = ReduceLuhnDigitString(luhnDigit);
+            return luhnDigitString;
+        }
+
+        public string ReduceLuhnDigitString(int luhnDigit)
+        {
             string luhnDigitString = luhnDigit.ToString();
             luhnDigit = 0;
 
@@ -55,7 +60,6 @@ namespace LuhnLibrary
 
             return luhnDigitString;
         }
-
         
     }
 }
