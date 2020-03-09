@@ -12,9 +12,10 @@ namespace LuhnCheck
     {
         static void Main(string[] args)
         {
-            string input = Console.ReadLine();
+            // string input = Console.ReadLine();
+            string input = "8900123490123456789";
             LuhnValidator luhnValidator = new LuhnValidator();
-            Console.WriteLine(luhnValidator.CheckLuhnSuffix(input));
+            Console.WriteLine(luhnValidator.AddLuhnSuffix(input));
         }
     }
 }

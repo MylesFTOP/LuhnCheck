@@ -35,7 +35,9 @@ namespace LuhnLibrary
 
             for (int i = 0; i < input.Length; i++)
             {
-                int currentDigit = int.Parse(input.Substring(input.Length - i - 1, 1));
+                int inputLength = input.Length;
+                int digitPosition = (inputLength - i - 1);
+                int currentDigit = int.Parse(input.Substring(digitPosition, 1));
 
                 if (i % 2 == 0)
                 { doubleOperands += currentDigit; }
