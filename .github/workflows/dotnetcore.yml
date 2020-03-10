@@ -14,9 +14,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1.4.0
+      uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
     - name: Build with dotnet
-      run: dotnet build --configuration Release
-      working-directory: ./ValidationCore
+      run: dotnet build ./ValidationCore --configuration Release
+    - name: Run tests with dotnet
+      run: dotnet test ./ValidationCore --configuration Release
