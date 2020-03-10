@@ -18,5 +18,5 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Test with dotnet
-      run: dotnet test --framework net461
+      run: dotnet test --configuration Release
       working-directory: ./ValidationCore
