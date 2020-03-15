@@ -13,7 +13,7 @@ namespace LuhnCheck
         static void Main(string[] args)
         {
             // string input = Console.ReadLine();
-            string input = "8900123490123456789";
+            string input = "7992739871";
             LuhnValidator luhnValidator = new LuhnValidator();
             Console.WriteLine(luhnValidator.AddLuhnSuffix(input));
         }

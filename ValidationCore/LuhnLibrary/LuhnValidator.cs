@@ -42,7 +42,6 @@ namespace LuhnLibrary
                 else
                 { singleOperands += currentDigit; }
             }
-
             luhnDigit = singleOperands + (2 * doubleOperands);
 
             string luhnDigitString = ReduceLuhnDigitString(luhnDigit);
@@ -56,10 +55,9 @@ namespace LuhnLibrary
 
             for (int i = 0; i < luhnDigitString.Length; i++)
             { luhnDigit += int.Parse(luhnDigitString.Substring(i, 1)); }
-            luhnDigitString = luhnDigit.ToString();
 
+            luhnDigitString = luhnDigit.ToString();
             return luhnDigitString;
         }
-        
     }
 }

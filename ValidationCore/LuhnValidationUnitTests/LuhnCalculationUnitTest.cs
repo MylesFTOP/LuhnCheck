@@ -71,23 +71,5 @@ namespace LuhnValidationUnitTests
             bool actualValue = luhnCandidate.CheckLuhnSuffix(input);
             Assert.Equal(expectedValue, actualValue);
         }*/
-
-        [Fact]
-        public void CheckLuhnDigitStringReduction()
-        {
-            int input = 72;
-            string expectedValue = "9";
-            string actualValue = luhnCandidate.ReduceLuhnDigitString(input);
-            Assert.Equal(expectedValue, actualValue);
-        }
-
-        [Fact]
-        public void CheckLuhnDigitStringReduction2()
-        {
-            int input = 172;
-            string expectedValue = "1";
-            string actualValue = luhnCandidate.ReduceLuhnDigitString(input);
-            Assert.Equal(expectedValue, actualValue);
-        }
     }
 }
