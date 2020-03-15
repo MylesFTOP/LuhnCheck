@@ -26,7 +26,7 @@ namespace LuhnValidationUnitTests
             string actualValue = luhnCandidate.AddLuhnSuffix(input);
             Assert.Equal(expectedValue, actualValue);
         }
-        /*
+
         [Fact]
         public void CheckLuhnOutput3()
         {
@@ -34,8 +34,8 @@ namespace LuhnValidationUnitTests
             string expectedValue = "89001234901234567898";
             string actualValue = luhnCandidate.AddLuhnSuffix(input);
             Assert.Equal(expectedValue, actualValue);
-        }*/
-        
+        }
+
         [Fact]
         public void CheckLuhnValidation()
         {
@@ -62,7 +62,7 @@ namespace LuhnValidationUnitTests
             bool actualValue = luhnCandidate.CheckLuhnSuffix(input);
             Assert.Equal(expectedValue, actualValue);
         }
-        /*
+
         [Fact]
         public void CheckLuhnValidation4()
         {
@@ -70,6 +70,6 @@ namespace LuhnValidationUnitTests
             bool expectedValue = true;
             bool actualValue = luhnCandidate.CheckLuhnSuffix(input);
             Assert.Equal(expectedValue, actualValue);
-        }*/
+        }
     }
 }
