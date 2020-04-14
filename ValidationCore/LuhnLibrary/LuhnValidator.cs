@@ -19,11 +19,7 @@ namespace LuhnLibrary
             bool output = false;
             string suffix = CalculateLuhnDigit(input.Substring(0 , input.Length - 1));
 
-            if (suffix == input.Substring(input.Length - 1 , 1))
-                output = true;
-            else
-                output = false;
-
+            output = (suffix == input.Substring(input.Length - 1 , 1)) ? true : false ;
             return output;
         }
 
