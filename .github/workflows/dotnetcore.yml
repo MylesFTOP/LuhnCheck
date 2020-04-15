@@ -1,10 +1,6 @@
 name: .NET Core
 
-on:
-  push:
-    branches: [ ${GITHUB_REF##*/} ]
-  pull_request:
-    branches: [ ${GITHUB_REF##*/} ]
+on: [ push , pull_request ]
 
 jobs:
   build:
