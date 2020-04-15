@@ -2,9 +2,9 @@ name: .NET Core
 
 on:
   push:
-    branches: [ algorithm-correction ]
+    branches: [ ${GITHUB_REF##*/} ]
   pull_request:
-    branches: [ algorithm-correction ]
+    branches: [ ${GITHUB_REF##*/} ]
 
 jobs:
   build:
