@@ -33,12 +33,14 @@ namespace LuhnLibrary
             {
                 int currentDigit = int.Parse(input.Substring((input.Length - i - 1), 1));
 
+                // luhnDigit += (i % 2 == 0) ? 2 * currentDigit : currentDigit;
+
                 if (i % 2 == 0)
-                { doubleOperands += currentDigit; }
+                { doubleOperands += 2 * currentDigit; }
                 else
                 { singleOperands += currentDigit; }
             }
-            luhnDigit = singleOperands + (2 * doubleOperands);
+            luhnDigit = singleOperands + doubleOperands;
 
             string luhnDigitString = ReduceLuhnDigitString(luhnDigit);
             return luhnDigitString;
@@ -46,13 +48,19 @@ namespace LuhnLibrary
 
         public string ReduceLuhnDigitString(int luhnDigit)
         {
-            string luhnDigitString = luhnDigit.ToString();
-            luhnDigit = 0;
+            int reducedLuhnDigit = 0;
 
-            for (int i = 0; i < luhnDigitString.Length; i++)
-            { luhnDigit += int.Parse(luhnDigitString.Substring(i, 1)); }
+            while (luhnDigit != 0 || reducedLuhnDigit > 9) { 
+                reducedLuhnDigit += luhnDigit % 10;
+                luhnDigit /= 10;
+                if (luhnDigit == 0 && reducedLuhnDigit > 9)
+                {
+                    luhnDigit = reducedLuhnDigit;
+                    reducedLuhnDigit = 0;
+                }
+            }
 
-            luhnDigitString = luhnDigit.ToString();
+            string luhnDigitString = reducedLuhnDigit.ToString();
             return luhnDigitString;
         }
     }
