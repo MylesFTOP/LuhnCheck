@@ -8,14 +8,12 @@ namespace LuhnLibrary
 {
     public class LuhnValidator
     {
-        public string AddLuhnSuffix(string input)
-        {
+        public string AddLuhnSuffix(string input) {
             string output = input + CalculateLuhnDigit(input);
             return output;
         }
 
-        public bool CheckLuhnSuffix(string input)
-        {
+        public bool CheckLuhnSuffix(string input) {
             bool output = false;
             string suffix = CalculateLuhnDigit(input.Substring(0 , input.Length - 1));
 
@@ -23,14 +21,12 @@ namespace LuhnLibrary
             return output;
         }
 
-        public string CalculateLuhnDigit(string input)
-        {
+        public string CalculateLuhnDigit(string input) {
             int luhnDigit = 0;
             int singleOperands = 0;
             int doubleOperands = 0;
 
-            for (int i = 0; i < input.Length; i++)
-            {
+            for (int i = 0; i < input.Length; i++) {
                 int currentDigit = int.Parse(input.Substring((input.Length - i - 1), 1));
 
                 // luhnDigit += (i % 2 == 0) ? 2 * currentDigit : currentDigit;
@@ -46,15 +42,13 @@ namespace LuhnLibrary
             return luhnDigitString;
         }
 
-        public string ReduceLuhnDigitString(int luhnDigit)
-        {
+        public string ReduceLuhnDigitString(int luhnDigit) {
             int reducedLuhnDigit = 0;
 
             while (luhnDigit != 0 || reducedLuhnDigit > 9) { 
                 reducedLuhnDigit += luhnDigit % 10;
                 luhnDigit /= 10;
-                if (luhnDigit == 0 && reducedLuhnDigit > 9)
-                {
+                if (luhnDigit == 0 && reducedLuhnDigit > 9) {
                     luhnDigit = reducedLuhnDigit;
                     reducedLuhnDigit = 0;
                 }
