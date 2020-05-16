@@ -38,11 +38,11 @@ namespace LuhnLibrary
             }
             luhnDigit = singleOperands + doubleOperands;
 
-            string luhnDigitString = ReduceLuhnDigitString(luhnDigit);
+            string luhnDigitString = ReduceToDigitSum(luhnDigit).ToString();
             return luhnDigitString;
         }
 
-        public string ReduceLuhnDigitString(int luhnDigit) {
+        public int ReduceToDigitSum(int luhnDigit) {
             int reducedLuhnDigit = 0;
 
             while (luhnDigit != 0 || reducedLuhnDigit > 9) { 
@@ -53,9 +53,7 @@ namespace LuhnLibrary
                     reducedLuhnDigit = 0;
                 }
             }
-
-            string luhnDigitString = reducedLuhnDigit.ToString();
-            return luhnDigitString;
+            return reducedLuhnDigit;
         }
     }
 }
