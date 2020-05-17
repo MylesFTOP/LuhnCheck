@@ -23,22 +23,13 @@ namespace LuhnLibrary
 
         public string CalculateLuhnDigit(string input) {
             int luhnDigit = 0;
-            int singleOperands = 0;
-            int doubleOperands = 0;
 
             for (int i = 0; i < input.Length; i++) {
                 int currentDigit = int.Parse(input.Substring((input.Length - i - 1), 1));
-
-                // luhnDigit += (i % 2 == 0) ? 2 * currentDigit : currentDigit;
-
-                if (i % 2 == 0)
-                { doubleOperands += ReduceToDigitSum(2 * currentDigit); }
-                else
-                { singleOperands += currentDigit; }
+                luhnDigit += (i % 2 == 0) ? ReduceToDigitSum(2 * currentDigit) : currentDigit;
             }
-            luhnDigit = singleOperands + doubleOperands;
+            
             luhnDigit = 10 - (luhnDigit % 10);
-
             string luhnDigitString = luhnDigit.ToString();
             return luhnDigitString;
         }
@@ -46,13 +37,9 @@ namespace LuhnLibrary
         public int ReduceToDigitSum(int luhnDigit) {
             int reducedLuhnDigit = 0;
 
-            while (luhnDigit != 0 || reducedLuhnDigit > 9) { 
+            while (luhnDigit != 0 ) { 
                 reducedLuhnDigit += luhnDigit % 10;
                 luhnDigit /= 10;
-                if (luhnDigit == 0 && reducedLuhnDigit > 9) {
-                    luhnDigit = reducedLuhnDigit;
-                    reducedLuhnDigit = 0;
-                }
             }
             return reducedLuhnDigit;
         }
