@@ -8,56 +8,53 @@ namespace LuhnLibrary
 {
     public class LuhnValidator
     {
-        public string AddLuhnSuffix(string input)
-        {
+        public string AddLuhnSuffix(string input) {
             string output = input + CalculateLuhnDigit(input);
             return output;
         }
 
-        public bool CheckLuhnSuffix(string input)
-        {
+        public bool CheckLuhnSuffix(string input) {
             bool output = false;
             string suffix = CalculateLuhnDigit(input.Substring(0 , input.Length - 1));
 
-            if (suffix == input.Substring(input.Length - 1 , 1))
-                output = true;
-            else
-                output = false;
-
+            output = (suffix == input.Substring(input.Length - 1 , 1)) ? true : false ;
             return output;
         }
 
-        public string CalculateLuhnDigit(string input)
-        {
+        public string CalculateLuhnDigit(string input) {
             int luhnDigit = 0;
             int singleOperands = 0;
             int doubleOperands = 0;
 
-            for (int i = 0; i < input.Length; i++)
-            {
+            for (int i = 0; i < input.Length; i++) {
                 int currentDigit = int.Parse(input.Substring((input.Length - i - 1), 1));
 
+                // luhnDigit += (i % 2 == 0) ? 2 * currentDigit : currentDigit;
+
                 if (i % 2 == 0)
-                { doubleOperands += currentDigit; }
+                { doubleOperands += ReduceToDigitSum(2 * currentDigit); }
                 else
                 { singleOperands += currentDigit; }
             }
-            luhnDigit = singleOperands + (2 * doubleOperands);
+            luhnDigit = singleOperands + doubleOperands;
+            luhnDigit = 10 - (luhnDigit % 10);
 
-            string luhnDigitString = ReduceLuhnDigitString(luhnDigit);
+            string luhnDigitString = luhnDigit.ToString();
             return luhnDigitString;
         }
 
-        public string ReduceLuhnDigitString(int luhnDigit)
-        {
-            string luhnDigitString = luhnDigit.ToString();
-            luhnDigit = 0;
+        public int ReduceToDigitSum(int luhnDigit) {
+            int reducedLuhnDigit = 0;
 
-            for (int i = 0; i < luhnDigitString.Length; i++)
-            { luhnDigit += int.Parse(luhnDigitString.Substring(i, 1)); }
-
-            luhnDigitString = luhnDigit.ToString();
-            return luhnDigitString;
+            while (luhnDigit != 0 || reducedLuhnDigit > 9) { 
+                reducedLuhnDigit += luhnDigit % 10;
+                luhnDigit /= 10;
+                if (luhnDigit == 0 && reducedLuhnDigit > 9) {
+                    luhnDigit = reducedLuhnDigit;
+                    reducedLuhnDigit = 0;
+                }
+            }
+            return reducedLuhnDigit;
         }
     }
 }

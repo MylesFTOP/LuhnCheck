@@ -10,8 +10,7 @@ namespace LuhnValidationUnitTests
         private LuhnValidator luhnCandidate = new LuhnValidator();
 
         [Fact]
-        public void CheckLuhnOutput()
-        {
+        public void CheckLuhnOutput() {
             string input = "12";
             string expectedValue = "125";
             string actualValue = luhnCandidate.AddLuhnSuffix(input);
@@ -19,26 +18,23 @@ namespace LuhnValidationUnitTests
         }
         
         [Fact]
-        public void CheckLuhnOutput2()
-        {
+        public void CheckLuhnOutput2() {
             string input = "123456789";
             string expectedValue = "1234567897";
             string actualValue = luhnCandidate.AddLuhnSuffix(input);
             Assert.Equal(expectedValue, actualValue);
         }
-
+        
         [Fact]
-        public void CheckLuhnOutput3()
-        {
+        public void CheckLuhnOutput3() {
             string input = "8900123490123456789";
             string expectedValue = "89001234901234567898";
             string actualValue = luhnCandidate.AddLuhnSuffix(input);
             Assert.Equal(expectedValue, actualValue);
         }
-
+        
         [Fact]
-        public void CheckLuhnValidation()
-        {
+        public void CheckLuhnValidation() {
             string input = "125";
             bool expectedValue = true;
             bool actualValue = luhnCandidate.CheckLuhnSuffix(input);
@@ -46,8 +42,7 @@ namespace LuhnValidationUnitTests
         }
         
         [Fact]
-        public void CheckLuhnValidation2()
-        {
+        public void CheckLuhnValidation2() {
             string input = "1234567897";
             bool expectedValue = true;
             bool actualValue = luhnCandidate.CheckLuhnSuffix(input);
@@ -55,17 +50,15 @@ namespace LuhnValidationUnitTests
         }
 
         [Fact]
-        public void CheckLuhnValidation3()
-        {
+        public void CheckLuhnValidation3() {
             string input = "1234567899";
             bool expectedValue = false;
             bool actualValue = luhnCandidate.CheckLuhnSuffix(input);
             Assert.Equal(expectedValue, actualValue);
         }
-
+        
         [Fact]
-        public void CheckLuhnValidation4()
-        {
+        public void CheckLuhnValidation4() {
             string input = "89001234901234567898";
             bool expectedValue = true;
             bool actualValue = luhnCandidate.CheckLuhnSuffix(input);
