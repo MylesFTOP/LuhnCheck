@@ -32,13 +32,14 @@ namespace LuhnLibrary
                 // luhnDigit += (i % 2 == 0) ? 2 * currentDigit : currentDigit;
 
                 if (i % 2 == 0)
-                { doubleOperands += 2 * currentDigit; }
+                { doubleOperands += ReduceToDigitSum(2 * currentDigit); }
                 else
                 { singleOperands += currentDigit; }
             }
             luhnDigit = singleOperands + doubleOperands;
+            luhnDigit = 10 - (luhnDigit % 10);
 
-            string luhnDigitString = ReduceToDigitSum(luhnDigit).ToString();
+            string luhnDigitString = luhnDigit.ToString();
             return luhnDigitString;
         }
 
