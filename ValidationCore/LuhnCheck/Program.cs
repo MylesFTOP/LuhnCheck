@@ -32,7 +32,7 @@ namespace LuhnCheck
                 case "r":
                     Console.WriteLine("Please enter number for check digit:");
                     input = Console.ReadLine();
-                    Console.WriteLine($"The check digit for {input} is " + luhnValidator.AddLuhnSuffix(input));
+                    Console.WriteLine($"The check digit for {input} is " + luhnValidator.ReturnLuhnSuffix(input));
                     break;
                 case "V":
                 case "v":

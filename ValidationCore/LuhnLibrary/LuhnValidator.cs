@@ -33,7 +33,7 @@ namespace LuhnLibrary
                 luhnDigit += (i % 2 == 0) ? ReduceToDigitSum(2 * currentDigit) : currentDigit;
             }
             
-            luhnDigit = 10 - (luhnDigit % 10);
+            luhnDigit = (10 - (luhnDigit % 10)) % 10;
             string luhnDigitString = luhnDigit.ToString();
             return luhnDigitString;
         }

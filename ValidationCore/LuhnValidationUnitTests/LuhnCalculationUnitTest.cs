@@ -33,6 +33,15 @@ namespace LuhnValidationUnitTests
             Assert.Equal(expectedValue, actualValue);
         }
         [Fact]
+        public void CheckLuhnOutput5()
+        {
+            string input = "19";
+            string expectedValue = "190";
+            string actualValue = luhnCandidate.AddLuhnSuffix(input);
+            Assert.Equal(expectedValue, actualValue);
+        }
+
+        [Fact]
         public void CheckLuhnReturn() {
             string input = "12";
             int expectedValue = 5;
