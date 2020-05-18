@@ -25,7 +25,7 @@ namespace LuhnLibrary
             return output;
         }
 
-        public string CalculateLuhnDigit(string input) {
+        private string CalculateLuhnDigit(string input) {
             int luhnDigit = 0;
 
             for (int i = 0; i < input.Length; i++) {
@@ -38,7 +38,7 @@ namespace LuhnLibrary
             return luhnDigitString;
         }
 
-        public int ReduceToDigitSum(int luhnDigit) {
+        private int ReduceToDigitSum(int luhnDigit) {
             int reducedLuhnDigit = 0;
 
             while (luhnDigit != 0 ) { 

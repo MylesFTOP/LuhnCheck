@@ -7,7 +7,7 @@ namespace LuhnValidationUnitTests
 {
     public class LuhnCalculationUnitTest
     {
-        private LuhnValidator luhnCandidate = new LuhnValidator();
+        private readonly LuhnValidator luhnCandidate = new LuhnValidator();
 
         [Fact]
         public void CheckLuhnOutput() {

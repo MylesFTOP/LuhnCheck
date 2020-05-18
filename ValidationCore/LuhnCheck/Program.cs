@@ -10,9 +10,9 @@ namespace LuhnCheck
 {
     public class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            string input = "";
+            string input;
             LuhnValidator luhnValidator = new LuhnValidator();
 
             Console.WriteLine("Please choose an option from the following:\n" +
