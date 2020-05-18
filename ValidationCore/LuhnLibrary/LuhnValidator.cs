@@ -16,8 +16,12 @@ namespace LuhnLibrary
         public bool CheckLuhnSuffix(string input) {
             bool output = false;
             string suffix = CalculateLuhnDigit(input.Substring(0 , input.Length - 1));
-
             output = (suffix == input.Substring(input.Length - 1 , 1)) ? true : false ;
+            return output;
+        }
+
+        public int ReturnLuhnSuffix(string input) {
+            int output = Int32.Parse(CalculateLuhnDigit(input));
             return output;
         }
 
