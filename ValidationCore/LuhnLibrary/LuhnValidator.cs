@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace LuhnLibrary
 {
     public class LuhnValidator
+
     {
         public string AddLuhnSuffix(string input) {
             string output = input + CalculateLuhnDigit(input);
