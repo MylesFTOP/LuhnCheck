@@ -22,20 +22,17 @@ namespace LuhnLibrary
             {
                 case "N":
                 case "n":
-                    Console.WriteLine("Please enter number requiring new checksum:");
-                    input = Console.ReadLine();
+                    input = TakeInput("Please enter number requiring new checksum");
                     Console.WriteLine("New checksum is " + luhnValidator.AddLuhnSuffix(input));
                     break;
                 case "R":
                 case "r":
-                    Console.WriteLine("Please enter number for check digit:");
-                    input = Console.ReadLine();
+                    input = TakeInput("Please enter number for check digit");
                     Console.WriteLine($"The check digit for {input} is " + luhnValidator.ReturnLuhnSuffix(input));
                     break;
                 case "V":
                 case "v":
-                    Console.WriteLine("Please enter number requiring checksum validation:");
-                    input = Console.ReadLine();
+                    input = TakeInput("Please enter number requiring checksum validation");
                     string result = luhnValidator.CheckLuhnSuffix(input) ? "valid" : "not valid";
                     Console.WriteLine($"Checksum is {result}.");
                     break;
@@ -48,6 +45,12 @@ namespace LuhnLibrary
                     Console.WriteLine("No valid option selected.");
                     break;
             }
+
+        }
+        private string TakeInput(string userMessage) {
+            Console.WriteLine($"{userMessage}:");
+            string input = Console.ReadLine();
+            return input;
         }
     }
 }
