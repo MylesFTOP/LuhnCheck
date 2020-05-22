@@ -10,7 +10,7 @@ namespace LuhnLibrary
 
     {
         public string AddLuhnSuffix(string input) {
-            string output = input + CalculateLuhnDigit(input);
+            var output = input + CalculateLuhnDigit(input);
             return output;
         }
 
@@ -23,12 +23,12 @@ namespace LuhnLibrary
         }
 
         public string CheckLuhnSuffixReturnString(string input) {
-            string result = CheckLuhnSuffixReturnBool(input) ? "valid" : "not valid";
+            var result = CheckLuhnSuffixReturnBool(input) ? "valid" : "not valid";
             return result;
         }
 
         public int ReturnLuhnSuffix(string input) {
-            int output = CalculateLuhnDigit(input);
+            var output = CalculateLuhnDigit(input);
             return output;
         }
 
@@ -45,7 +45,7 @@ namespace LuhnLibrary
         }
 
         private int ReduceToDigitSum(int luhnDigit) {
-            int reducedLuhnDigit = 0;
+            var reducedLuhnDigit = 0;
 
             while (luhnDigit != 0 ) { 
                 reducedLuhnDigit += luhnDigit % 10;
