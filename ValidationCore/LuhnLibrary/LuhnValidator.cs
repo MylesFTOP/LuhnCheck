@@ -16,8 +16,9 @@ namespace LuhnLibrary
 
         public bool CheckLuhnSuffixReturnBool(string input) {
             bool output = false;
-            string suffix = CalculateLuhnDigit(input.Substring(0 , input.Length - 1));
-            output = (suffix == input.Substring(input.Length - 1 , 1)) ? true : false ;
+            var inputWithoutSuffix = input.Substring(0, input.Length - 1);
+            var inputSuffix = Int32.Parse(input.Substring(input.Length - 1, 1));
+            output = (inputSuffix == CalculateLuhnDigit(inputWithoutSuffix)) ? true : false ;
             return output;
         }
 
@@ -27,11 +28,11 @@ namespace LuhnLibrary
         }
 
         public int ReturnLuhnSuffix(string input) {
-            int output = Int32.Parse(CalculateLuhnDigit(input));
+            int output = CalculateLuhnDigit(input);
             return output;
         }
 
-        private string CalculateLuhnDigit(string input) {
+        private int CalculateLuhnDigit(string input) {
             int luhnDigit = 0;
 
             for (int i = 0; i < input.Length; i++) {
@@ -40,8 +41,7 @@ namespace LuhnLibrary
             }
             
             luhnDigit = (10 - (luhnDigit % 10)) % 10;
-            string luhnDigitString = luhnDigit.ToString();
-            return luhnDigitString;
+            return luhnDigit;
         }
 
         private int ReduceToDigitSum(int luhnDigit) {
