@@ -33,8 +33,7 @@ namespace LuhnLibrary
                 case "V":
                 case "v":
                     input = TakeInput("Please enter number requiring checksum validation");
-                    string result = luhnValidator.CheckLuhnSuffix(input) ? "valid" : "not valid";
-                    Console.WriteLine($"Checksum is {result}.");
+                    Console.WriteLine($"Checksum is " + luhnValidator.CheckLuhnSuffixReturnString(input) + ".");
                     break;
                 case "Q":
                 case "q":

@@ -14,11 +14,16 @@ namespace LuhnLibrary
             return output;
         }
 
-        public bool CheckLuhnSuffix(string input) {
+        public bool CheckLuhnSuffixReturnBool(string input) {
             bool output = false;
             string suffix = CalculateLuhnDigit(input.Substring(0 , input.Length - 1));
             output = (suffix == input.Substring(input.Length - 1 , 1)) ? true : false ;
             return output;
+        }
+
+        public string CheckLuhnSuffixReturnString(string input) {
+            string result = CheckLuhnSuffixReturnBool(input) ? "valid" : "not valid";
+            return result;
         }
 
         public int ReturnLuhnSuffix(string input) {

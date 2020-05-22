@@ -69,7 +69,7 @@ namespace LuhnValidationUnitTests
         public void CheckLuhnValidation() {
             string input = "125";
             bool expectedValue = true;
-            bool actualValue = luhnCandidate.CheckLuhnSuffix(input);
+            bool actualValue = luhnCandidate.CheckLuhnSuffixReturnBool(input);
             Assert.Equal(expectedValue, actualValue);
         }
         
@@ -77,7 +77,7 @@ namespace LuhnValidationUnitTests
         public void CheckLuhnValidation2() {
             string input = "1234567897";
             bool expectedValue = true;
-            bool actualValue = luhnCandidate.CheckLuhnSuffix(input);
+            bool actualValue = luhnCandidate.CheckLuhnSuffixReturnBool(input);
             Assert.Equal(expectedValue, actualValue);
         }
 
@@ -85,7 +85,7 @@ namespace LuhnValidationUnitTests
         public void CheckLuhnValidation3() {
             string input = "1234567899";
             bool expectedValue = false;
-            bool actualValue = luhnCandidate.CheckLuhnSuffix(input);
+            bool actualValue = luhnCandidate.CheckLuhnSuffixReturnBool(input);
             Assert.Equal(expectedValue, actualValue);
         }
         
@@ -93,7 +93,7 @@ namespace LuhnValidationUnitTests
         public void CheckLuhnValidation4() {
             string input = "89001234901234567898";
             bool expectedValue = true;
-            bool actualValue = luhnCandidate.CheckLuhnSuffix(input);
+            bool actualValue = luhnCandidate.CheckLuhnSuffixReturnBool(input);
             Assert.Equal(expectedValue, actualValue);
         }
     }
