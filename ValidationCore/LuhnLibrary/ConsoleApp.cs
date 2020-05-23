@@ -9,6 +9,20 @@ namespace LuhnLibrary
     public class ConsoleApp
     {
         readonly LuhnValidator luhnValidator = new LuhnValidator();
+        public void RunApplication() {
+            Console.WriteLine("Please choose an option from the following:\n" +
+                "[N]ew checksum\n" +
+                "[R]eturn check digit\n" +
+                "[V]alidate existing checksum" //\n" +
+                // "[Q]uit"
+            );
+
+            var option = Console.ReadLine();
+            var validationType = SetValidationType(option);
+            var userMessage = SetUserPrompt(validationType);
+            var input = TakeInput(userMessage);
+            RunValidation(validationType, input);
+        }
 
         private enum ValidationType
         {
@@ -55,21 +69,6 @@ namespace LuhnLibrary
                 Console.WriteLine($"The check digit for {input} is " + luhnValidator.ReturnLuhnSuffix(input));
             if (validationType == ValidationType.ValidateExistingChecksum)
                 Console.WriteLine($"Checksum is " + luhnValidator.CheckLuhnSuffixReturnString(input) + ".");
-        }
-
-        public void RunApplication() {
-            Console.WriteLine("Please choose an option from the following:\n" +
-                "[N]ew checksum\n" +
-                "[R]eturn check digit\n" +
-                "[V]alidate existing checksum" //\n" +
-                // "[Q]uit"
-            );
-
-            var option = Console.ReadLine();
-            var validationType = SetValidationType(option);
-            var userMessage = SetUserPrompt(validationType);
-            var input = TakeInput(userMessage);
-            RunValidation(validationType, input);
         }
     }
 }
