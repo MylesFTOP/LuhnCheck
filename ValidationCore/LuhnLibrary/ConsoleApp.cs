@@ -8,9 +8,36 @@ namespace LuhnLibrary
 {
     public class ConsoleApp
     {
+        readonly LuhnValidator luhnValidator = new LuhnValidator();
+
+        private enum ValidationType
+        {
+            NotChosen,
+            NewChecksum,
+            ReturnCheckDigit,
+            ValidateExistingChecksum,
+        }
+        private ValidationType SetValidationType(string userPrompt) {
+            ValidationType validationType;
+            if (userPrompt == "N" || userPrompt == "n")
+                validationType = ValidationType.NewChecksum;
+            if (userPrompt == "R" || userPrompt == "r")
+                validationType = ValidationType.ReturnCheckDigit;
+            if (userPrompt == "V" || userPrompt == "v")
+                validationType = ValidationType.ValidateExistingChecksum;
+            else
+                validationType = ValidationType.NotChosen;
+            return validationType;
+        }
+
+        private string TakeInput(string userMessage) {
+            Console.WriteLine($"{userMessage}:");
+            string input = Console.ReadLine();
+            return input;
+        }
+
         public void RunApplication() {
             string input;
-            LuhnValidator luhnValidator = new LuhnValidator();
 
             Console.WriteLine("Please choose an option from the following:\n" +
                 "[N]ew checksum\n" +
@@ -45,11 +72,6 @@ namespace LuhnLibrary
                     break;
             }
 
-        }
-        private string TakeInput(string userMessage) {
-            Console.WriteLine($"{userMessage}:");
-            string input = Console.ReadLine();
-            return input;
         }
     }
 }

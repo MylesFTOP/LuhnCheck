@@ -23,7 +23,7 @@ namespace LuhnLibrary
         }
 
         public string CheckLuhnSuffixReturnString(string input) {
-            var result = CheckLuhnSuffixReturnBool(input) ? "valid" : "not valid";
+            var result = CheckLuhnSuffixReturnBool(input) ? "valid" : "not valid" ;
             return result;
         }
 

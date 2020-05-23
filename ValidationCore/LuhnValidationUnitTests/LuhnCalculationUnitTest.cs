@@ -26,7 +26,7 @@ namespace LuhnValidationUnitTests
         }
         
         [Fact]
-        public void CheckLuhnOutput3() {
+        public void CheckLuhnOutputICCID() {
             string input = "8900123490123456789";
             string expectedValue = "89001234901234567898";
             string actualValue = luhnCandidate.AddLuhnSuffix(input);
@@ -58,7 +58,7 @@ namespace LuhnValidationUnitTests
         }
         
         [Fact]
-        public void CheckLuhnReturn3() {
+        public void CheckLuhnReturnICCID() {
             string input = "8900123490123456789";
             int expectedValue = 8;
             int actualValue = luhnCandidate.ReturnLuhnSuffix(input);
@@ -90,7 +90,7 @@ namespace LuhnValidationUnitTests
         }
         
         [Fact]
-        public void CheckLuhnValidation4() {
+        public void CheckLuhnValidationICCID() {
             string input = "89001234901234567898";
             bool expectedValue = true;
             bool actualValue = luhnCandidate.CheckLuhnSuffixReturnBool(input);
