@@ -17,61 +17,59 @@ namespace LuhnLibrary
             ReturnCheckDigit,
             ValidateExistingChecksum,
         }
-        private ValidationType SetValidationType(string userPrompt) {
+        private ValidationType SetValidationType(string option) {
             ValidationType validationType;
-            if (userPrompt == "N" || userPrompt == "n")
+            if (option == "N" || option == "n")
                 validationType = ValidationType.NewChecksum;
-            if (userPrompt == "R" || userPrompt == "r")
+            if (option == "R" || option == "r")
                 validationType = ValidationType.ReturnCheckDigit;
-            if (userPrompt == "V" || userPrompt == "v")
+            if (option == "V" || option == "v")
                 validationType = ValidationType.ValidateExistingChecksum;
             else
                 validationType = ValidationType.NotChosen;
             return validationType;
         }
+        private string SetUserPrompt(ValidationType validationType) {
+            string userMessage;
+            if (validationType == ValidationType.NewChecksum)
+                userMessage = "Please enter number requiring new checksum:";
+            if (validationType == ValidationType.ReturnCheckDigit)
+                userMessage = "Please enter number for check digit:";
+            if (validationType == ValidationType.ValidateExistingChecksum)
+                userMessage = "Please enter number requiring checksum validation:";
+            else
+                userMessage = "No valid option selected.";
+            return userMessage;
+        }
 
         private string TakeInput(string userMessage) {
-            Console.WriteLine($"{userMessage}:");
+            Console.WriteLine($"{userMessage}");
             string input = Console.ReadLine();
             return input;
         }
 
-        public void RunApplication() {
-            string input;
+        private void RunValidation(ValidationType validationType, string input) {
+            if (validationType == ValidationType.NewChecksum)
+                Console.WriteLine("New checksum is " + luhnValidator.AddLuhnSuffix(input));
+            if (validationType == ValidationType.ReturnCheckDigit)
+                Console.WriteLine($"The check digit for {input} is " + luhnValidator.ReturnLuhnSuffix(input));
+            if (validationType == ValidationType.ValidateExistingChecksum)
+                Console.WriteLine($"Checksum is " + luhnValidator.CheckLuhnSuffixReturnString(input) + ".");
+        }
 
+        public void RunApplication() {
             Console.WriteLine("Please choose an option from the following:\n" +
                 "[N]ew checksum\n" +
                 "[R]eturn check digit\n" +
-                "[V]alidate existing checksum\n" +
-                "[Q]uit");
-            string option = Console.ReadLine();
-            switch (option)
-            {
-                case "N":
-                case "n":
-                    input = TakeInput("Please enter number requiring new checksum");
-                    Console.WriteLine("New checksum is " + luhnValidator.AddLuhnSuffix(input));
-                    break;
-                case "R":
-                case "r":
-                    input = TakeInput("Please enter number for check digit");
-                    Console.WriteLine($"The check digit for {input} is " + luhnValidator.ReturnLuhnSuffix(input));
-                    break;
-                case "V":
-                case "v":
-                    input = TakeInput("Please enter number requiring checksum validation");
-                    Console.WriteLine($"Checksum is " + luhnValidator.CheckLuhnSuffixReturnString(input) + ".");
-                    break;
-                case "Q":
-                case "q":
-                    Console.WriteLine("Exiting application.");
-                    System.Environment.Exit(0);
-                    break;
-                default:
-                    Console.WriteLine("No valid option selected.");
-                    break;
-            }
+                "[V]alidate existing checksum" //\n" +
+                // "[Q]uit"
+            );
 
+            var option = Console.ReadLine();
+            var validationType = SetValidationType(option);
+            var userMessage = SetUserPrompt(validationType);
+            var input = TakeInput(userMessage);
+            RunValidation(validationType, input);
         }
     }
 }
