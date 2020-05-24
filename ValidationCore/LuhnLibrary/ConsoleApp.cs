@@ -17,6 +17,7 @@ namespace LuhnLibrary
             var userMessage = SetUserPrompt(validationOption);
             var input = TakeInput(userMessage);
             RunValidation(validationOption, input);
+            ContinueProgram();
         }
 
         private static void DisplayOptions() {
@@ -43,8 +44,12 @@ namespace LuhnLibrary
             else if (option == "V" || option == "v") 
                 { validationOption = ValidationOption.ValidateExistingChecksum; }
             else if ( option == "Q" || option == "q" )
-                { System.Environment.Exit(0); }
+                { ExitProgram(); }
             return validationOption;
+        }
+
+        private static void ExitProgram() {
+            System.Environment.Exit(0);
         }
 
         private string SetUserPrompt(in ValidationOption validationOption) {
@@ -73,6 +78,16 @@ namespace LuhnLibrary
                 { Console.WriteLine($"The check digit for {input} is " + luhnValidator.ReturnLuhnSuffix(input)); }
             else if (validationOption == ValidationOption.ValidateExistingChecksum)
                 { Console.WriteLine($"Checksum is " + luhnValidator.CheckLuhnSuffixReturnString(input) + "."); }
+        }
+
+        private void ContinueProgram() {
+            Console.WriteLine("Do you wish to validate another number (Y/N)?");
+            var option = Console.ReadLine();
+
+            if (option == "Y" || option == "y")
+                { RunApplication(); }
+            else if (option == "N" || option == "n")
+                { ExitProgram(); }
         }
     }
 }
