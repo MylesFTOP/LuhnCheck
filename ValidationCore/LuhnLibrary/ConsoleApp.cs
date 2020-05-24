@@ -12,10 +12,9 @@ namespace LuhnLibrary
 
         public void RunApplication() {
             DisplayOptions();
-            var option = Console.ReadLine();
+            var option = TakeOptionInputFromUser();
             var validationOption = SetValidationOption(option);
-            var userMessage = SetUserPrompt(validationOption);
-            var input = TakeInput(userMessage);
+            var input = PromptUserForInputString(validationOption);
             RunValidation(validationOption, input);
             ContinueProgram();
         }
@@ -37,13 +36,13 @@ namespace LuhnLibrary
         
         private ValidationOption SetValidationOption(in string option) {
             ValidationOption validationOption = ValidationOption.NotChosen;
-            if (option == "N" || option == "n" ) 
+            if ( option == "N" ) 
                 { validationOption = ValidationOption.NewChecksum; }
-            else if (option == "R" || option == "r") 
+            else if ( option == "R" ) 
                 { validationOption = ValidationOption.ReturnCheckDigit; }
-            else if (option == "V" || option == "v") 
+            else if ( option == "V" ) 
                 { validationOption = ValidationOption.ValidateExistingChecksum; }
-            else if ( option == "Q" || option == "q" )
+            else if ( option == "Q" )
                 { ExitProgram(); }
             return validationOption;
         }
@@ -65,10 +64,23 @@ namespace LuhnLibrary
             return userMessage;
         }
 
-        private string TakeInput(in string userMessage) {
+        private string PromptUserForInputString(in ValidationOption validationOption) {
+            var userMessage = SetUserPrompt(validationOption);
             Console.WriteLine($"{userMessage}");
-            string input = Console.ReadLine();
-            return input;
+
+            if ( validationOption == ValidationOption.NotChosen ) {
+                RunApplication();
+                return null;
+            }
+            else { 
+                string input = Console.ReadLine();
+                return input;
+            }
+        }
+
+        private string TakeOptionInputFromUser() {
+            string option = Console.ReadLine().ToUpper();
+            return option;
         }
 
         private void RunValidation(in ValidationOption validationOption, string input) {
@@ -82,11 +94,11 @@ namespace LuhnLibrary
 
         private void ContinueProgram() {
             Console.WriteLine("Do you wish to validate another number (Y/N)?");
-            var option = Console.ReadLine();
+            var option = TakeOptionInputFromUser();
 
-            if (option == "Y" || option == "y")
+            if ( option == "Y" )
                 { RunApplication(); }
-            else if (option == "N" || option == "n")
+            else if ( option == "N" )
                 { ExitProgram(); }
             else { 
                 Console.WriteLine("Option not recognised. Please try again.");
