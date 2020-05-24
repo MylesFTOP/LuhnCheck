@@ -9,6 +9,7 @@ namespace LuhnLibrary
     public class ConsoleApp
     {
         readonly LuhnValidator luhnValidator = new LuhnValidator();
+
         public void RunApplication() {
             Console.WriteLine("Please choose an option from the following:\n" +
                 "[N]ew checksum\n" +
@@ -17,13 +18,13 @@ namespace LuhnLibrary
                 // "[Q]uit"
             );
 
-            var option = Console.ReadLine();
+            string option = Console.ReadLine();
             var validationType = SetValidationType(option);
             var userMessage = SetUserPrompt(validationType);
             var input = TakeInput(userMessage);
             RunValidation(validationType, input);
         }
-
+        
         private enum ValidationType
         {
             NotChosen,
@@ -31,28 +32,22 @@ namespace LuhnLibrary
             ReturnCheckDigit,
             ValidateExistingChecksum,
         }
+        
         private ValidationType SetValidationType(string option) {
             ValidationType validationType;
-            if (option == "N" || option == "n")
-                validationType = ValidationType.NewChecksum;
-            if (option == "R" || option == "r")
-                validationType = ValidationType.ReturnCheckDigit;
-            if (option == "V" || option == "v")
-                validationType = ValidationType.ValidateExistingChecksum;
-            else
-                validationType = ValidationType.NotChosen;
+            if (option == "N" || option == "n" ) { validationType = ValidationType.NewChecksum; }
+            else if (option == "R" || option == "r") { validationType = ValidationType.ReturnCheckDigit; }
+            else if (option == "V" || option == "v") { validationType = ValidationType.ValidateExistingChecksum; }
+            else { validationType = ValidationType.NotChosen; }
             return validationType;
         }
+
         private string SetUserPrompt(ValidationType validationType) {
             string userMessage;
-            if (validationType == ValidationType.NewChecksum)
-                userMessage = "Please enter number requiring new checksum:";
-            if (validationType == ValidationType.ReturnCheckDigit)
-                userMessage = "Please enter number for check digit:";
-            if (validationType == ValidationType.ValidateExistingChecksum)
-                userMessage = "Please enter number requiring checksum validation:";
-            else
-                userMessage = "No valid option selected.";
+            if (validationType == ValidationType.NewChecksum) { userMessage = "Please enter number requiring new checksum:"; }
+            else if (validationType == ValidationType.ReturnCheckDigit) { userMessage = "Please enter number for check digit:"; }
+            else if (validationType == ValidationType.ValidateExistingChecksum) { userMessage = "Please enter number requiring checksum validation:"; }
+            else { userMessage = "No valid option selected."; }
             return userMessage;
         }
 
@@ -63,12 +58,9 @@ namespace LuhnLibrary
         }
 
         private void RunValidation(ValidationType validationType, string input) {
-            if (validationType == ValidationType.NewChecksum)
-                Console.WriteLine("New checksum is " + luhnValidator.AddLuhnSuffix(input));
-            if (validationType == ValidationType.ReturnCheckDigit)
-                Console.WriteLine($"The check digit for {input} is " + luhnValidator.ReturnLuhnSuffix(input));
-            if (validationType == ValidationType.ValidateExistingChecksum)
-                Console.WriteLine($"Checksum is " + luhnValidator.CheckLuhnSuffixReturnString(input) + ".");
+            if (validationType == ValidationType.NewChecksum) { Console.WriteLine("New checksum is " + luhnValidator.AddLuhnSuffix(input)); }
+            else if (validationType == ValidationType.ReturnCheckDigit) { Console.WriteLine($"The check digit for {input} is " + luhnValidator.ReturnLuhnSuffix(input)); }
+            else if (validationType == ValidationType.ValidateExistingChecksum) { Console.WriteLine($"Checksum is " + luhnValidator.CheckLuhnSuffixReturnString(input) + "."); }
         }
     }
 }
