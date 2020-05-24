@@ -88,6 +88,10 @@ namespace LuhnLibrary
                 { RunApplication(); }
             else if (option == "N" || option == "n")
                 { ExitProgram(); }
+            else { 
+                Console.WriteLine("Option not recognised. Please try again.");
+                ContinueProgram();
+            }
         }
     }
 }
