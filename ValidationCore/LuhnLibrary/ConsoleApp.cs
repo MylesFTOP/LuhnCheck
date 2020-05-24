@@ -18,7 +18,7 @@ namespace LuhnLibrary
                 // "[Q]uit"
             );
 
-            string option = Console.ReadLine();
+            var option = Console.ReadLine();
             var validationType = SetValidationType(option);
             var userMessage = SetUserPrompt(validationType);
             var input = TakeInput(userMessage);
