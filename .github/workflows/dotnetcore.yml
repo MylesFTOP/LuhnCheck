@@ -13,11 +13,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.201
-    - name: Install dotnet-outdated
-      run: dotnet tool install --global dotnet-outdated
-    - name: Run dotnet-outdated to check dependencies are up-to-date
-      run: dotnet outdated --no-restore
-      working-directory: .\ValidationCore
     - name: Build with dotnet
       run: dotnet build .\ValidationCore --configuration Release
     - name: Run tests with dotnet
