@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuhnCheck", "LuhnCheck\Luhn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuhnLibrary", "LuhnLibrary\LuhnLibrary.csproj", "{28ABDE37-C90C-4876-9BE3-CE65CDD2D350}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuhnValidationUnitTests", "LuhnValidationUnitTests\LuhnValidationUnitTests.csproj", "{D24F0BFB-AB56-4FB2-B4B4-DA1B593778FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuhnLibrary.Tests", "LuhnLibrary.Tests\LuhnLibrary.Tests.csproj", "{D24F0BFB-AB56-4FB2-B4B4-DA1B593778FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
