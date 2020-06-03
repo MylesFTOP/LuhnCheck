@@ -16,7 +16,7 @@ jobs:
     - name: Install dotnet-outdated
       run: dotnet tool install --global dotnet-outdated
     - name: Run dotnet-outdated to check dependencies are up-to-date
-      run: dotnet outdated
+      run: dotnet outdated ./ValidationCore
     - name: Build with dotnet
       run: dotnet build ./ValidationCore --configuration Release
     - name: Run tests with dotnet
