@@ -12,7 +12,7 @@ namespace LuhnCheck
     {
         static void Main()
         {
-            ConsoleApp application = new ConsoleApp();
+            ConsoleUI application = new ConsoleUI();
             application.RunApplication();
         }
     }

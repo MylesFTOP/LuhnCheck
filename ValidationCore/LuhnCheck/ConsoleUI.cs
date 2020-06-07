@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LuhnCheck
 {
-    public class ConsoleApp
+    public class ConsoleUI
     {
         readonly LuhnValidator luhnValidator = new LuhnValidator();
 
