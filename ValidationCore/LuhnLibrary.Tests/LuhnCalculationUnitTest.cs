@@ -9,90 +9,31 @@ namespace LuhnValidationUnitTests
     {
         private readonly LuhnValidator luhnCandidate = new LuhnValidator();
 
-        [Fact]
-        public void CheckLuhnOutput() {
-            string input = "12";
-            string expectedValue = "125";
-            string actualValue = luhnCandidate.AddLuhnSuffix(input);
-            Assert.Equal(expectedValue, actualValue);
-        }
-        
-        [Fact]
-        public void CheckLuhnOutput2() {
-            string input = "123456789";
-            string expectedValue = "1234567897";
-            string actualValue = luhnCandidate.AddLuhnSuffix(input);
-            Assert.Equal(expectedValue, actualValue);
-        }
-        
-        [Fact]
-        public void CheckLuhnOutputICCID() {
-            string input = "8900123490123456789";
-            string expectedValue = "89001234901234567898";
-            string actualValue = luhnCandidate.AddLuhnSuffix(input);
-            Assert.Equal(expectedValue, actualValue);
-        }
-        [Fact]
-        public void CheckLuhnOutput5()
-        {
-            string input = "19";
-            string expectedValue = "190";
+        [Theory]
+        [InlineData("12", "125")]
+        [InlineData("19", "190")]
+        [InlineData("123456789", "1234567897")]
+        [InlineData("8900123490123456789", "89001234901234567898")] // ICCID test case
+        public void CheckLuhnOutput(string input, string expectedValue) {
             string actualValue = luhnCandidate.AddLuhnSuffix(input);
             Assert.Equal(expectedValue, actualValue);
         }
 
-        [Fact]
-        public void CheckLuhnReturn() {
-            string input = "12";
-            int expectedValue = 5;
+        [Theory]
+        [InlineData("12", 5)]
+        [InlineData("123456789", 7)]
+        [InlineData("8900123490123456789", 8)] // ICCID test case
+        public void CheckLuhnReturn(string input, int expectedValue) {
             int actualValue = luhnCandidate.ReturnLuhnSuffix(input);
-            Assert.Equal(expectedValue, actualValue);
-        }
-        
-        [Fact]
-        public void CheckLuhnReturn2() {
-            string input = "123456789";
-            int expectedValue = 7;
-            int actualValue = luhnCandidate.ReturnLuhnSuffix(input);
-            Assert.Equal(expectedValue, actualValue);
-        }
-        
-        [Fact]
-        public void CheckLuhnReturnICCID() {
-            string input = "8900123490123456789";
-            int expectedValue = 8;
-            int actualValue = luhnCandidate.ReturnLuhnSuffix(input);
-            Assert.Equal(expectedValue, actualValue);
-        }
-        
-        [Fact]
-        public void CheckLuhnValidation() {
-            string input = "125";
-            bool expectedValue = true;
-            bool actualValue = luhnCandidate.CheckLuhnSuffixReturnBool(input);
-            Assert.Equal(expectedValue, actualValue);
-        }
-        
-        [Fact]
-        public void CheckLuhnValidation2() {
-            string input = "1234567897";
-            bool expectedValue = true;
-            bool actualValue = luhnCandidate.CheckLuhnSuffixReturnBool(input);
             Assert.Equal(expectedValue, actualValue);
         }
 
-        [Fact]
-        public void CheckLuhnValidation3() {
-            string input = "1234567899";
-            bool expectedValue = false;
-            bool actualValue = luhnCandidate.CheckLuhnSuffixReturnBool(input);
-            Assert.Equal(expectedValue, actualValue);
-        }
-        
-        [Fact]
-        public void CheckLuhnValidationICCID() {
-            string input = "89001234901234567898";
-            bool expectedValue = true;
+        [Theory]
+        [InlineData("125", true)]
+        [InlineData("1234567897", true)]
+        [InlineData("1234567899", false)]
+        [InlineData("89001234901234567898", true)] // ICCID test case
+        public void CheckLuhnValidation(string input, bool expectedValue) {
             bool actualValue = luhnCandidate.CheckLuhnSuffixReturnBool(input);
             Assert.Equal(expectedValue, actualValue);
         }
