@@ -16,6 +16,6 @@ jobs:
     - name: Build with dotnet
       run: dotnet build ./ValidationCore --configuration Release
     - name: Run tests with dotnet
-      run: dotnet test ./ValidationCore --configuration Release --settings "./.github/coverlet_runsettings.xml" /p:Exclude="[LuhnCheck]*"
+      run: dotnet test ./ValidationCore --configuration Release --settings "./.github/coverlet_runsettings.xml" /p:CollectCoverage=true /p:Exclude=\"[LuhnCheck]*\"
     - name: Push coverage report to codecov
       uses: codecov/codecov-action@v1
