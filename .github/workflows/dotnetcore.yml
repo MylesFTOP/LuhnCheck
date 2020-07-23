@@ -16,4 +16,4 @@ jobs:
     - name: Build with dotnet
       run: dotnet build ./ValidationCore --configuration Release
     - name: Run tests with dotnet
-      run: dotnet test ./ValidationCore --configuration Release --settings "../coverlet_runsettings.xml" /p:Exclude="[LuhnCheck]*"
+      run: dotnet test ./ValidationCore --configuration Release --settings "./.github/coverlet_runsettings.xml" /p:Exclude="[LuhnCheck]*"
