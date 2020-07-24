@@ -21,6 +21,7 @@ namespace LuhnValidationUnitTests
 
         [Theory]
         [InlineData("12", 5)]
+        [InlineData("19", 0)]
         [InlineData("123456789", 7)]
         [InlineData("8900123490123456789", 8)] // ICCID test case
         public void CheckLuhnReturn(string input, int expectedValue) {
@@ -30,12 +31,21 @@ namespace LuhnValidationUnitTests
 
         [Theory]
         [InlineData("125", true)]
+        [InlineData("190", true)]
         [InlineData("1234567897", true)]
         [InlineData("1234567899", false)]
         [InlineData("89001234901234567898", true)] // ICCID test case
         public void CheckLuhnValidation(string input, bool expectedValue) {
             bool actualValue = luhnCandidate.CheckLuhnSuffixReturnBool(input);
             Assert.Equal(expectedValue, actualValue);
+        }
+
+        [Theory]
+        [InlineData("124","not valid")]
+        [InlineData("125","valid")]
+        public void CheckLuhnValidationWithStringReturn(string input, string expectedValue) {
+            string actualValue = luhnCandidate.CheckLuhnSuffixReturnString(input);
+            Assert.Matches(expectedValue, actualValue);
         }
     }
 }
