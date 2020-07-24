@@ -261,3 +261,6 @@ paket-files/
 __pycache__/
 *.pyc
 
+# Coverage files and tools
+codecov
+coverage.*
