@@ -53,16 +53,18 @@ namespace LuhnCheck
         }
 
         private string SetUserPrompt(in ValidationOption validationOption) {
-            string userMessage;
-            if (validationOption == ValidationOption.NewChecksum) 
-                { userMessage = "Please enter number requiring new checksum:"; }
-            else if (validationOption == ValidationOption.ReturnCheckDigit) 
-                { userMessage = "Please enter number for check digit:"; }
-            else if (validationOption == ValidationOption.ValidateExistingChecksum) 
-                { userMessage = "Please enter number requiring checksum validation:"; }
-            else 
-                { userMessage = "No valid option selected."; }
-            return userMessage;
+            switch (validationOption) {
+                case ValidationOption.NotChosen:
+                    return "Please enter number requiring new checksum:";
+                case ValidationOption.NewChecksum:
+                    return "Please enter number for check digit:";
+                case ValidationOption.ReturnCheckDigit:
+                    return "Please enter number requiring checksum validation:";
+                case ValidationOption.ValidateExistingChecksum:
+                    return "Please enter number requiring checksum validation:";
+                default:
+                    return "No valid option selected.";
+            }
         }
 
         private string PromptUserForInputString(in ValidationOption validationOption) {
