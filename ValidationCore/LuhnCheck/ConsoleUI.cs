@@ -82,8 +82,7 @@ namespace LuhnCheck
         }
 
         private string TakeOptionInputFromUser() {
-            string option = Console.ReadLine().ToUpper();
-            return option;
+            return Console.ReadLine().ToUpper();
         }
 
         private void RunValidation(in ValidationOption validationOption, string input) {
