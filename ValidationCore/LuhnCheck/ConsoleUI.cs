@@ -76,8 +76,7 @@ namespace LuhnCheck
                 return null;
             }
             else { 
-                string input = Console.ReadLine();
-                return input;
+                return Console.ReadLine();
             }
         }
 
