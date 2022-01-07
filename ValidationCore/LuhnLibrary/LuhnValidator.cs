@@ -10,26 +10,21 @@ namespace LuhnLibrary
 
     {
         public string AddLuhnSuffix(string input) {
-            var output = input + CalculateLuhnDigit(input);
-            return output;
+            return input + CalculateLuhnDigit(input);
         }
 
         public bool CheckLuhnSuffixReturnBool(string input) {
-            bool output = false;
             var inputWithoutSuffix = input.Substring(0, input.Length - 1);
             var inputSuffix = Int32.Parse(input.Substring(input.Length - 1, 1));
-            output = (inputSuffix == CalculateLuhnDigit(inputWithoutSuffix)) ? true : false ;
-            return output;
+            return (inputSuffix == CalculateLuhnDigit(inputWithoutSuffix));
         }
 
         public string CheckLuhnSuffixReturnString(string input) {
-            var result = CheckLuhnSuffixReturnBool(input) ? "valid" : "not valid" ;
-            return result;
+            return CheckLuhnSuffixReturnBool(input) ? "valid" : "not valid" ;
         }
 
         public int ReturnLuhnSuffix(string input) {
-            var output = CalculateLuhnDigit(input);
-            return output;
+            return CalculateLuhnDigit(input);
         }
 
         private int CalculateLuhnDigit(string input) {
