@@ -88,7 +88,7 @@ namespace LuhnCheck
             if (validationOption == ValidationOption.NewChecksum) 
                 { Console.WriteLine("New checksum is " + luhnValidator.AddLuhnSuffix(input)); }
             else if (validationOption == ValidationOption.ReturnCheckDigit)
-                { Console.WriteLine($"The check digit for {input} is " + luhnValidator.ReturnLuhnSuffix(input)); }
+                { Console.WriteLine($"The check digit for {input} is " + luhnValidator.CalculateLuhnSuffix(input)); }
             else if (validationOption == ValidationOption.ValidateExistingChecksum)
                 { Console.WriteLine($"Checksum is " + luhnValidator.CheckLuhnSuffixReturnString(input) + "."); }
         }

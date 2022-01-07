@@ -25,7 +25,7 @@ namespace LuhnValidationUnitTests
         [InlineData("123456789", 7)]
         [InlineData("8900123490123456789", 8)] // ICCID test case
         public void CheckLuhnReturn(string input, int expectedValue) {
-            int actualValue = luhnCandidate.ReturnLuhnSuffix(input);
+            int actualValue = luhnCandidate.CalculateLuhnSuffix(input);
             Assert.Equal(expectedValue, actualValue);
         }
 

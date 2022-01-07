@@ -21,7 +21,7 @@ namespace LuhnLibrary
         public string CheckLuhnSuffixReturnString(string input)
             => CheckLuhnSuffixReturnBool(input) ? "valid" : "not valid";
 
-        public int ReturnLuhnSuffix(string input)
+        public int CalculateLuhnSuffix(string input)
             => CalculateLuhnDigit(input);
 
         private int CalculateLuhnDigit(string input) {
