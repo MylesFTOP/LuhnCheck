@@ -9,9 +9,8 @@ namespace LuhnLibrary
     public class LuhnValidator
 
     {
-        public string AddLuhnSuffix(string input) {
-            return input + CalculateLuhnDigit(input);
-        }
+        public string AddLuhnSuffix(string input)
+            => input + CalculateLuhnDigit(input);
 
         public bool CheckLuhnSuffixReturnBool(string input) {
             var inputWithoutSuffix = input.Substring(0, input.Length - 1);
@@ -19,13 +18,11 @@ namespace LuhnLibrary
             return (inputSuffix == CalculateLuhnDigit(inputWithoutSuffix));
         }
 
-        public string CheckLuhnSuffixReturnString(string input) {
-            return CheckLuhnSuffixReturnBool(input) ? "valid" : "not valid" ;
-        }
+        public string CheckLuhnSuffixReturnString(string input)
+            => CheckLuhnSuffixReturnBool(input) ? "valid" : "not valid";
 
-        public int ReturnLuhnSuffix(string input) {
-            return CalculateLuhnDigit(input);
-        }
+        public int ReturnLuhnSuffix(string input)
+            => CalculateLuhnDigit(input);
 
         private int CalculateLuhnDigit(string input) {
             int luhnDigit = 0;
