@@ -31,7 +31,7 @@ namespace LuhnCheck
             ValidateExistingChecksum,
         }
         
-        private ValidationOption SetValidationOption(in string option) {
+        private ValidationOption SetValidationOption(string option) {
             ValidationOption validationOption = ValidationOption.NotChosen;
             if ( option == "N" ) 
                 { validationOption = ValidationOption.NewChecksum; }
@@ -48,14 +48,14 @@ namespace LuhnCheck
             System.Environment.Exit(0);
         }
 
-        private string SetUserPrompt(in ValidationOption validationOption) {
+        private string SetUserPrompt(ValidationOption validationOption) {
             switch (validationOption) {
                 case ValidationOption.NotChosen:
                     return "Please enter number requiring new checksum:";
                 case ValidationOption.NewChecksum:
                     return "Please enter number for check digit:";
                 case ValidationOption.ReturnCheckDigit:
-                    return "Please enter number requiring checksum validation:";
+                    return "Please enter number requiring check digit:";
                 case ValidationOption.ValidateExistingChecksum:
                     return "Please enter number requiring checksum validation:";
                 default:
@@ -63,7 +63,7 @@ namespace LuhnCheck
             }
         }
 
-        private string PromptUserForInputString(in ValidationOption validationOption) {
+        private string PromptUserForInputString(ValidationOption validationOption) {
             Console.WriteLine($"{SetUserPrompt(validationOption)}");
 
             if ( validationOption == ValidationOption.NotChosen ) {
@@ -91,7 +91,7 @@ namespace LuhnCheck
             return Console.ReadLine().ToUpper();
         }
 
-        private void RunValidation(in ValidationOption validationOption, string input) {
+        private void RunValidation(ValidationOption validationOption, string input) {
             if (validationOption == ValidationOption.NewChecksum) 
                 { Console.WriteLine("New checksum is " + luhnValidator.AddLuhnSuffix(input)); }
             else if (validationOption == ValidationOption.ReturnCheckDigit)
