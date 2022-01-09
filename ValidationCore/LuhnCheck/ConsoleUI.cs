@@ -1,9 +1,5 @@
 ﻿using LuhnLibrary;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LuhnCheck
 {
@@ -68,8 +64,7 @@ namespace LuhnCheck
         }
 
         private string PromptUserForInputString(in ValidationOption validationOption) {
-            var userMessage = SetUserPrompt(validationOption);
-            Console.WriteLine($"{userMessage}");
+            Console.WriteLine($"{SetUserPrompt(validationOption)}");
 
             if ( validationOption == ValidationOption.NotChosen ) {
                 RunApplication();
