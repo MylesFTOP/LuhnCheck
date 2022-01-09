@@ -70,8 +70,20 @@ namespace LuhnCheck
                 RunApplication();
                 return null;
             }
-            else { 
-                return Console.ReadLine();
+            else {
+                var validInput = false;
+                while (!validInput)
+                {
+                    var input = Console.ReadLine();
+                    validInput = Int32.TryParse(input, out int validatedInput);
+                    if (validInput)
+                    {
+                        return validatedInput.ToString();
+                    }
+                    Console.WriteLine("Input not recognised as a number. Please try again.");
+                    continue;
+                }
+                return null;
             }
         }
 
