@@ -1,5 +1,6 @@
 ﻿using LuhnLibrary;
 using System;
+using System.Collections.Generic;
 
 namespace LuhnCheck
 {
@@ -92,12 +93,14 @@ namespace LuhnCheck
         }
 
         private void RunValidation(ValidationOption validationOption, string input) {
-            if (validationOption == ValidationOption.NewChecksum) 
-                { Console.WriteLine("New checksum is " + luhnValidator.AddLuhnSuffix(input)); }
-            else if (validationOption == ValidationOption.ReturnCheckDigit)
-                { Console.WriteLine($"The check digit for {input} is " + luhnValidator.CalculateLuhnSuffix(input)); }
-            else if (validationOption == ValidationOption.ValidateExistingChecksum)
-                { Console.WriteLine($"Checksum is " + luhnValidator.CheckLuhnSuffixReturnString(input) + "."); }
+            Dictionary<ValidationOption, string> responses = new Dictionary<ValidationOption, string>()
+            {
+                { ValidationOption.NewChecksum , "New checksum is " + luhnValidator.AddLuhnSuffix(input) },
+                { ValidationOption.ReturnCheckDigit , $"The check digit for {input} is " + luhnValidator.CalculateLuhnSuffix(input) },
+                { ValidationOption.ValidateExistingChecksum , $"Checksum is " + luhnValidator.CheckLuhnSuffixReturnString(input) + "." }
+            };
+            responses.TryGetValue(validationOption, out string display);
+            Console.WriteLine(display);
         }
 
         private void ContinueProgram() {
