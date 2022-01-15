@@ -9,9 +9,8 @@ namespace LuhnLibrary
             => input + CalculateLuhnDigit(input);
 
         public bool CheckLuhnSuffixReturnBool(string input) {
-            var inputWithoutSuffix = input.Substring(0, input.Length - 1);
-            var inputSuffix = input.Substring(input.Length - 1, 1);
-            return (CalculateLuhnDigit(inputWithoutSuffix) == Int32.Parse(inputSuffix));
+            (string, string) splitInput = (input.Substring(0, input.Length - 1), input.Substring(input.Length - 1, 1));
+            return (CalculateLuhnDigit(splitInput.Item1) == Int32.Parse(splitInput.Item2));
         }
 
         public string CheckLuhnSuffixReturnString(string input)
