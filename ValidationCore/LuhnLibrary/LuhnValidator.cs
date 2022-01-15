@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LuhnLibrary
 {
@@ -14,8 +10,8 @@ namespace LuhnLibrary
 
         public bool CheckLuhnSuffixReturnBool(string input) {
             var inputWithoutSuffix = input.Substring(0, input.Length - 1);
-            var inputSuffix = Int32.Parse(input.Substring(input.Length - 1, 1));
-            return (inputSuffix == CalculateLuhnDigit(inputWithoutSuffix));
+            var inputSuffix = input.Substring(input.Length - 1, 1);
+            return (CalculateLuhnDigit(inputWithoutSuffix) == Int32.Parse(inputSuffix));
         }
 
         public string CheckLuhnSuffixReturnString(string input)
