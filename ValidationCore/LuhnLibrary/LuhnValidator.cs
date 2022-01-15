@@ -3,14 +3,13 @@
 namespace LuhnLibrary
 {
     public class LuhnValidator
-
     {
         public string AddLuhnSuffix(string input)
             => input + CalculateLuhnDigit(input);
 
         public bool CheckLuhnSuffixReturnBool(string input) {
             (string, string) splitInput = (input.Substring(0, input.Length - 1), input.Substring(input.Length - 1, 1));
-            return (CalculateLuhnDigit(splitInput.Item1) == Int32.Parse(splitInput.Item2));
+            return CalculateLuhnDigit(splitInput.Item1) == int.Parse(splitInput.Item2);
         }
 
         public string CheckLuhnSuffixReturnString(string input)
